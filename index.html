@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fluent AI — Le bootcamp IA pour les pros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f3ef;
+    --cream: #ede9e0;
+    --accent: #c8503c;
+    --accent2: #2d4a3e;
+    --muted: #8a8070;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+    --mono: 'Space Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--sans);
+    overflow-x: hidden;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    border-bottom: 1px solid rgba(245,243,239,0.08);
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+  }
+
+  .logo {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: rgba(245,243,239,0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--accent) !important;
+    color: var(--white) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(200,80,60,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 3rem 6rem 4rem;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+    color: var(--white);
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: rgba(245,243,239,0.65);
+    max-width: 480px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+    padding: 1rem 2.2rem;
+    border: none;
+    border-radius: 2px;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { background: #b8432f; transform: translateY(-1px); }
+
+  .btn-ghost {
+    color: rgba(245,243,239,0.7);
+    font-size: 0.9rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .hero-stats {
+    margin-top: 4rem;
+    display: flex;
+    gap: 3rem;
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--white);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-top: 0.3rem;
+  }
+
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 4rem 4rem 2rem;
+    position: relative;
+  }
+
+  .hero-card {
+    background: rgba(245,243,239,0.04);
+    border: 1px solid rgba(245,243,239,0.1);
+    border-radius: 4px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 2rem; right: 2rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  .card-tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-headline {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+  }
+
+  .fears-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .fear-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    background: rgba(245,243,239,0.03);
+    border-radius: 3px;
+    border: 1px solid rgba(245,243,239,0.06);
+    transition: border-color 0.2s;
+  }
+  .fear-item:hover { border-color: rgba(200,80,60,0.3); }
+
+  .fear-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .fear-text {
+    font-size: 0.92rem;
+    color: rgba(245,243,239,0.8);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* STRIP */
+  .strip {
+    background: var(--accent);
+    padding: 1rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .strip-text {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,243,239,0.85);
+    flex-shrink: 0;
+  }
+  .strip-dot {
+    width: 4px; height: 4px;
+    background: rgba(245,243,239,0.4);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* SECTION SHARED */
+  section {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* FOR WHO */
+  .for-who-wrapper {
+    background: rgba(245,243,239,0.02);
+    border-top: 1px solid rgba(245,243,239,0.08);
+    border-bottom: 1px solid rgba(245,243,239,0.08);
+  }
+
+  .for-who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .persona {
+    padding: 3.5rem 3rem;
+    border-right: 1px solid rgba(245,243,239,0.08);
+    position: relative;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .persona:last-child { border-right: none; }
+  .persona:hover { background: rgba(245,243,239,0.03); }
+
+  .persona-num {
+    font-family: var(--serif);
+    font-size: 4rem;
+    color: rgba(245,243,239,0.06);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .persona-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .persona-role {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .persona-desc {
+    font-size: 0.92rem;
+    color: rgba(245,243,239,0.6);
+    line-height: 1.7;
+  }
+
+  /* PROGRAM */
+  .program-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .program-intro p {
+    color: rgba(245,243,239,0.6);
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .program-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .meta-key {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .meta-val {
+    font-size: 1.05rem;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .modules {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba(245,243,239,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .module {
+    padding: 1.8rem 2rem;
+    border-bottom: 1px solid rgba(245,243,239,0.08);
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    gap: 1.2rem;
+    align-items: start;
+    transition: background 0.2s;
+  }
+  .module:last-child { border-bottom: none; }
+  .module:hover { background: rgba(245,243,239,0.03); }
+
+  .module-num {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    padding-top: 0.2rem;
+  }
+
+  .module-title {
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.35rem;
+    font-size: 0.98rem;
+  }
+  .module-desc {
+    font-size: 0.85rem;
+    color: rgba(245,243,239,0.5);
+    line-height: 1.5;
+  }
+
+  .module-weeks {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    margin-top: 0.2rem;
+  }
+
+  /* OUTCOMES */
+  .outcomes-section {
+    border-top: 1px solid rgba(245,243,239,0.08);
+  }
+
+  .outcomes-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .outcomes-visual {
+    background: rgba(245,243,239,0.03);
+    border: 1px solid rgba(245,243,239,0.08);
+    border-radius: 3px;
+    padding: 2.5rem;
+  }
+
+  .ov-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .ov-bar-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .ov-bar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ov-bar-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+  }
+  .ov-bar-top span:first-child { color: rgba(245,243,239,0.75); }
+  .ov-bar-top span:last-child { color: var(--accent); font-weight: 600; font-family: var(--mono); font-size: 0.75rem; }
+
+  .ov-bar-track {
+    height: 4px;
+    background: rgba(245,243,239,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .ov-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 2px;
+    animation: barGrow 1.5s ease forwards;
+    transform-origin: left;
+  }
+
+  @keyframes barGrow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  .outcomes-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .outcome-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .outcome-check {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: rgba(45,74,62,0.4);
+    border: 1px solid var(--accent2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    color: #6db89a;
+    margin-top: 0.15rem;
+  }
+
+  .outcome-text {
+    font-size: 0.98rem;
+    color: rgba(245,243,239,0.8);
+    line-height: 1.6;
+  }
+  .outcome-text strong { color: var(--white); }
+
+  /* TESTIMONIALS */
+  .testi-section {
+    border-top: 1px solid rgba(245,243,239,0.08);
+    background: rgba(245,243,239,0.015);
+  }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .testi-card {
+    background: rgba(245,243,239,0.04);
+    border: 1px solid rgba(245,243,239,0.08);
+    border-radius: 3px;
+    padding: 2rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .testi-card:hover {
+    border-color: rgba(200,80,60,0.25);
+    transform: translateY(-2px);
+  }
+
+  .testi-quote {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(245,243,239,0.85);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .testi-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .testi-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .testi-role {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .price-card {
+    border: 1px solid rgba(245,243,239,0.1);
+    border-radius: 3px;
+    padding: 2.5rem;
+    transition: border-color 0.2s;
+    position: relative;
+  }
+  .price-card:hover { border-color: rgba(245,243,239,0.2); }
+
+  .price-card.featured {
+    border-color: var(--accent);
+    background: rgba(200,80,60,0.05);
+  }
+
+  .price-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--white);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 2px;
+  }
+
+  .price-name {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .price-amount {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .price-period {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .price-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  .price-feature {
+    font-size: 0.88rem;
+    color: rgba(245,243,239,0.7);
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+  }
+  .price-feature::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    text-align: center;
+    border-top: 1px solid rgba(245,243,239,0.08);
+    background: linear-gradient(180deg, transparent, rgba(200,80,60,0.05));
+    padding: 8rem 4rem;
+  }
+
+  .cta-section h2 {
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section p {
+    color: rgba(245,243,239,0.55);
+    font-size: 1rem;
+    max-width: 480px;
+    margin: 0 auto 3rem;
+    line-height: 1.75;
+  }
+
+  .cta-form {
+    display: flex;
+    gap: 0.8rem;
+    max-width: 440px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .cta-input {
+    flex: 1;
+    background: rgba(245,243,239,0.06);
+    border: 1px solid rgba(245,243,239,0.12);
+    color: var(--white);
+    padding: 0.9rem 1.2rem;
+    border-radius: 2px;
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    outline: none;
+    min-width: 200px;
+    transition: border-color 0.2s;
+  }
+  .cta-input::placeholder { color: rgba(245,243,239,0.3); }
+  .cta-input:focus { border-color: rgba(200,80,60,0.5); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid rgba(245,243,239,0.08);
+    padding: 2.5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .footer-tagline {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+  .delay-1 { animation-delay: 0.15s; }
+  .delay-2 { animation-delay: 0.3s; }
+  .delay-3 { animation-delay: 0.45s; }
+  .delay-4 { animation-delay: 0.6s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+
+    .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+    .hero-left { padding: 2rem 0; }
+    .hero-right { padding: 0; }
+    .hero-stats { gap: 2rem; }
+
+    section { padding: 4rem 1.5rem; }
+
+    .for-who-grid { grid-template-columns: 1fr; }
+    .persona { border-right: none; border-bottom: 1px solid rgba(245,243,239,0.08); }
+
+    .program-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .outcomes-wrapper { grid-template-columns: 1fr; gap: 3rem; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Fluent<span>AI</span></a>
+  <ul class="nav-links">
+    <li><a href="#programme">Programme</a></li>
+    <li><a href="#pour-qui">Pour qui ?</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#inscription" class="nav-cta">Candidater →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="max-width:100%; padding: 80px 0 0;">
+  <div class="hero-left">
+    <div class="eyebrow fade-up">Paris · Bootcamp IA · Fluent AI</div>
+    <h1 class="fade-up delay-1">L'IA ne vous<br>remplacera pas.<br><em>Mais ceux qui<br>la maîtrisent, oui.</em></h1>
+    <p class="hero-desc fade-up delay-2">Shift est le premier bootcamp parisien conçu pour les professionnels non-techniques. En 8 semaines, passez de spectateur à acteur de la révolution IA — sans écrire une ligne de code.</p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="#inscription" class="btn-primary">Candidater à la prochaine session →</a>
+      <span class="btn-ghost">Voir le programme</span>
+    </div>
+    <div class="hero-stats fade-up delay-4">
+      <div class="stat-item">
+        <span class="stat-num">6</span>
+        <span class="stat-label">Semaines soirs/WE</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Semaines full-time</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Sans code</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-card fade-up delay-2">
+      <div class="card-tag">Vous vous reconnaissez ?</div>
+      <h3 class="card-headline">Trois peurs,<br>une solution.</h3>
+      <ul class="fears-list">
+        <li class="fear-item">
+          <span class="fear-icon">😶‍🌫️</span>
+          <span class="fear-text">Je ne sais pas par où commencer</span>
+        </li>
+        <li class="fear-item">
+          <span class="fear-icon">⚡</span>
+          <span class="fear-text">Mon poste va être remplacé par l'IA</span>
+        </li>
+        <li class="fear-item">
+          <span class="fear-icon">🚀</span>
+          <span class="fear-text">Je veux rejoindre la tech, mais je ne sais pas comment</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <span class="strip-text">Fluent AI · Paris</span>
+  <span class="strip-dot"></span>
+  <span class="strip-text">Soirs & Week-ends · 6 semaines</span>
+  <span class="strip-dot"></span>
+  <span class="strip-text">Temps plein · 3 semaines</span>
+  <span class="strip-dot"></span>
+  <span class="strip-text">Paris 11e + Remote</span>
+  <span class="strip-dot"></span>
+  <span class="strip-text">Financement CPF possible</span>
+  <span class="strip-dot"></span>
+  <span class="strip-text">Places limitées · Candidature ouverte</span>
+  <span class="strip-dot"></span>
+  <span class="strip-text">Fluent AI · Paris</span>
+</div>
+
+<!-- POUR QUI -->
+<div id="pour-qui" class="for-who-wrapper">
+  <div class="for-who-grid">
+    <div class="persona">
+      <div class="persona-num">01</div>
+      <div class="persona-role">Le perdu de l'IA</div>
+      <h3 class="persona-title">Vous entendez parler d'IA tous les jours — et vous hochez la tête.</h3>
+      <p class="persona-desc">Manager, chargé de projet, marketeur : vous êtes compétent dans votre métier, mais l'IA vous semble hors de portée. Shift vous donne un système concret pour l'intégrer dès demain dans vos tâches quotidiennes.</p>
+    </div>
+    <div class="persona">
+      <div class="persona-num">02</div>
+      <div class="persona-role">Celui qui veut rester irremplaçable</div>
+      <h3 class="persona-title">Votre boîte déploie des outils IA. Votre poste semble menacé.</h3>
+      <p class="persona-desc">La vraie protection, c'est de devenir la personne qui sait *orchestrer* ces outils — pas la subir. Apprenez à auditer votre poste, identifier ce que l'IA prend en charge, et développer les compétences à haute valeur ajoutée.</p>
+    </div>
+    <div class="persona">
+      <div class="persona-num">03</div>
+      <div class="persona-role">Le pivot vers la tech</div>
+      <h3 class="persona-title">Consulting, finance, droit : vous voulez rejoindre l'écosystème tech.</h3>
+      <p class="persona-desc">La maîtrise de l'IA est aujourd'hui le meilleur passeport pour entrer dans une scale-up ou une grande tech. Shift vous donne le vocabulaire, les outils et les projets pour rendre votre profil crédible et distinctif.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRAMME -->
+<section id="programme">
+  <div class="program-grid">
+    <div class="program-intro">
+      <div class="section-label">Le programme</div>
+      <h2>Pratique.<br>Concret.<br>Immédiat.</h2>
+      <p>Pas de théorie. Chaque module est ancré dans des cas réels issus du conseil, de la finance, du marketing et des opérations.</p>
+
+      <div style="margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem;">
+        <div style="background: rgba(245,243,239,0.04); border: 1px solid rgba(245,243,239,0.1); border-radius: 3px; padding: 1.5rem;">
+          <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">Format Soirs & Week-ends</div>
+          <div style="font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem;">6 semaines</div>
+          <div style="font-size: 0.85rem; color: var(--muted);">Compatible avec un emploi à temps plein</div>
+        </div>
+        <div style="background: rgba(200,80,60,0.07); border: 1px solid rgba(200,80,60,0.25); border-radius: 3px; padding: 1.5rem;">
+          <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">Format Temps Plein</div>
+          <div style="font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem;">3 semaines</div>
+          <div style="font-size: 0.85rem; color: var(--muted);">Immersif · idéal entre deux postes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modules">
+      <div class="module">
+        <span class="module-num">01</span>
+        <div>
+          <div class="module-title">Fondations IA</div>
+          <div class="module-desc">LLMs · Agents · Limites & biais · <span style="color:var(--accent);font-size:0.8rem;">ChatGPT · Claude · Perplexity</span></div>
+        </div>
+      </div>
+      <div class="module">
+        <span class="module-num">02</span>
+        <div>
+          <div class="module-title">Prompt Engineering</div>
+          <div class="module-desc">Raisonnement · Rôles · Formats structurés · <span style="color:var(--accent);font-size:0.8rem;">Claude · ChatGPT · Cursor</span></div>
+        </div>
+      </div>
+      <div class="module">
+        <span class="module-num">03</span>
+        <div>
+          <div class="module-title">Automatisation No-Code</div>
+          <div class="module-desc">Workflows · Triggers · APIs sans code · <span style="color:var(--accent);font-size:0.8rem;">Make · N8N · Zapier</span></div>
+        </div>
+      </div>
+      <div class="module">
+        <span class="module-num">04</span>
+        <div>
+          <div class="module-title">Analyse de données</div>
+          <div class="module-desc">Extraction · Synthèse · Visualisation · <span style="color:var(--accent);font-size:0.8rem;">Claude · Notebook LM · Julius AI</span></div>
+        </div>
+      </div>
+      <div class="module">
+        <span class="module-num">05</span>
+        <div>
+          <div class="module-title">Stratégie & Business Case IA</div>
+          <div class="module-desc">ROI · Audit de poste · Pitch tech · <span style="color:var(--accent);font-size:0.8rem;">Notion AI · Gamma · Perplexity</span></div>
+        </div>
+      </div>
+      <div class="module">
+        <span class="module-num">06</span>
+        <div>
+          <div class="module-title">Projet final & Demo Day</div>
+          <div class="module-desc">Portfolio · Présentation jury · Intro aux recruteurs · <span style="color:var(--accent);font-size:0.8rem;">Stack libre</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<div style="background: rgba(245,243,239,0.02); border-top: 1px solid rgba(245,243,239,0.08); border-bottom: 1px solid rgba(245,243,239,0.08);">
+<section>
+  <div style="text-align:center; margin-bottom: 3.5rem;">
+    <div class="section-label" style="justify-content: center; display:flex;">Carrières</div>
+    <h2 style="max-width:600px; margin: 0 auto;">Le meilleur réseau tech<br>de Paris. Pour vous.</h2>
+    <p style="color: rgba(245,243,239,0.55); max-width: 520px; margin: 1.5rem auto 0; font-size: 0.98rem; line-height: 1.75;">Nos alumni rejoignent les meilleures entreprises tech parisiennes. Parce que nous les connaissons — et qu'ils nous font confiance pour envoyer les bons profils.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(245,243,239,0.08); border: 1px solid rgba(245,243,239,0.08); border-radius: 3px; overflow: hidden; margin-bottom: 3.5rem;">
+    <div style="background: var(--black); padding: 1.8rem; text-align:center; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: rgba(245,243,239,0.6); letter-spacing: 0.01em;">Mistral AI</div>
+    <div style="background: var(--black); padding: 1.8rem; text-align:center; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: rgba(245,243,239,0.6);">Contentsquare</div>
+    <div style="background: var(--black); padding: 1.8rem; text-align:center; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: rgba(245,243,239,0.6);">Doctrine</div>
+    <div style="background: var(--black); padding: 1.8rem; text-align:center; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: rgba(245,243,239,0.6);">Spendesk</div>
+    <div style="background: var(--black); padding: 1.8rem; text-align:center; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: rgba(245,243,239,0.6);">Qonto</div>
+    <div style="background: var(--black); padding: 1.8rem; text-align:center; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: rgba(245,243,239,0.6);">Alan</div>
+    <div style="background: var(--black); padding: 1.8rem; text-align:center; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: rgba(245,243,239,0.6);">Pigment</div>
+    <div style="background: var(--black); padding: 1.8rem; text-align:center; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: rgba(245,243,239,0.6);">Hugging Face</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+    <div style="padding: 2rem; border: 1px solid rgba(245,243,239,0.08); border-radius: 3px;">
+      <div style="font-family: var(--serif); font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem;">68%</div>
+      <div style="font-size: 0.88rem; color: rgba(245,243,239,0.6); line-height: 1.6;">des alumni obtiennent un nouveau rôle ou une mission liée à l'IA dans les 3 mois suivant le bootcamp.</div>
+    </div>
+    <div style="padding: 2rem; border: 1px solid rgba(245,243,239,0.08); border-radius: 3px;">
+      <div style="font-family: var(--serif); font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem;">200+</div>
+      <div style="font-size: 0.88rem; color: rgba(245,243,239,0.6); line-height: 1.6;">professionnels dans notre réseau alumni, actifs dans les meilleures scale-ups et entreprises tech de Paris.</div>
+    </div>
+    <div style="padding: 2rem; border: 1px solid rgba(245,243,239,0.08); border-radius: 3px;">
+      <div style="font-family: var(--serif); font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem;">1 on 1</div>
+      <div style="font-size: 0.88rem; color: rgba(245,243,239,0.6); line-height: 1.6;">Chaque diplômé bénéficie d'un entretien de carrière personnalisé avec notre équipe et nos partenaires recruteurs.</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- OUTCOMES -->
+<div class="outcomes-section">
+<section>
+  <div class="outcomes-wrapper">
+    <div>
+      <div class="section-label">Résultats</div>
+      <h2>Ce que vous<br>emportez.</h2>
+      <ul class="outcomes-list" style="margin-top: 2.5rem;">
+        <li class="outcome-item">
+          <div class="outcome-check">✓</div>
+          <p class="outcome-text"><strong>Un portfolio de 6 projets</strong> concrets applicables dès lundi dans votre poste actuel.</p>
+        </li>
+        <li class="outcome-item">
+          <div class="outcome-check">✓</div>
+          <p class="outcome-text"><strong>Un stack d'outils maîtrisés</strong> : Claude, ChatGPT, Perplexity, Make, N8N, et 10+ autres.</p>
+        </li>
+        <li class="outcome-item">
+          <div class="outcome-check">✓</div>
+          <p class="outcome-text"><strong>Accès direct aux meilleures boîtes tech</strong> parisiennes via notre réseau de partenaires recruteurs.</p>
+        </li>
+        <li class="outcome-item">
+          <div class="outcome-check">✓</div>
+          <p class="outcome-text"><strong>Un certificat reconnu</strong> à mentionner sur votre LinkedIn et votre CV.</p>
+        </li>
+        <li class="outcome-item">
+          <div class="outcome-check">✓</div>
+          <p class="outcome-text"><strong>Accès à vie</strong> au slack de la communauté et aux mises à jour du programme.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="outcomes-visual">
+      <div class="ov-label">Impact mesuré · Promo pilote</div>
+      <div class="ov-bar-group">
+        <div class="ov-bar-item">
+          <div class="ov-bar-top">
+            <span>Gain de productivité perçu</span>
+            <span>+40%</span>
+          </div>
+          <div class="ov-bar-track"><div class="ov-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="ov-bar-item">
+          <div class="ov-bar-top">
+            <span>Recommanderaient Fluent AI</span>
+            <span>92%</span>
+          </div>
+          <div class="ov-bar-track"><div class="ov-bar-fill" style="width:92%"></div></div>
+        </div>
+        <div class="ov-bar-item">
+          <div class="ov-bar-top">
+            <span>Ont obtenu un nouveau rôle / mission</span>
+            <span>68%</span>
+          </div>
+          <div class="ov-bar-track"><div class="ov-bar-fill" style="width:68%"></div></div>
+        </div>
+        <div class="ov-bar-item">
+          <div class="ov-bar-top">
+            <span>Se sentent à l'aise avec l'IA</span>
+            <span>97%</span>
+          </div>
+          <div class="ov-bar-track"><div class="ov-bar-fill" style="width:97%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testi-section">
+<section>
+  <div class="section-label">Témoignages</div>
+  <h2>Ce qu'ils en disent.</h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p class="testi-quote">« J'avais peur que l'IA rende mon poste obsolète. Fluent AI m'a appris à l'utiliser pour faire le travail de trois personnes. Je suis devenu la référence IA dans mon équipe. »</p>
+      <div class="testi-author">
+        <span class="testi-name">Sophie M.</span>
+        <span class="testi-role">Ex-consultante McKinsey → Head of Ops, Scale-up SaaS</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">« Le programme est concret, sans jargon inutile. En 8 semaines j'ai automatisé 6h de travail par semaine et décroché une mission chez Mistral AI. »</p>
+      <div class="testi-author">
+        <span class="testi-name">Thomas R.</span>
+        <span class="testi-role">Ex-analyste BNP Paribas → AI Strategy, Mistral AI</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">« J'avais essayé des MOOC, des YouTube… rien ne collait. Shift est le seul endroit où j'ai appris en faisant, entouré de gens qui venaient du même monde que moi. »</p>
+      <div class="testi-author">
+        <span class="testi-name">Amira K.</span>
+        <span class="testi-role">Directrice Marketing, Retail → Product Manager, Contentsquare</span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- TARIFS -->
+<section id="tarifs">
+  <div class="section-label">Tarifs</div>
+  <h2 style="text-align:center">Investissez dans<br>votre prochaine version.</h2>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-name">Individuel</div>
+      <div class="price-amount">3 900€</div>
+      <div class="price-period">ou 3× 1 370€ — financement CPF possible</div>
+      <ul class="price-features">
+        <li class="price-feature">Accès complet aux 8 modules</li>
+        <li class="price-feature">Projets pratiques & feedback</li>
+        <li class="price-feature">Accès à la communauté alumni</li>
+        <li class="price-feature">Certificat Fluent AI</li>
+        <li class="price-feature">Mises à jour du programme à vie</li>
+      </ul>
+      <a href="#inscription" class="btn-primary" style="width:100%; text-align:center; display:block;">Candidater →</a>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge">Recommandé</div>
+      <div class="price-name">Entreprise</div>
+      <div class="price-amount">Sur devis</div>
+      <div class="price-period">À partir de 5 participants — session dédiée</div>
+      <ul class="price-features">
+        <li class="price-feature">Programme sur-mesure pour votre secteur</li>
+        <li class="price-feature">Formateurs dédiés à votre équipe</li>
+        <li class="price-feature">Cas pratiques issus de votre entreprise</li>
+        <li class="price-feature">Rapport d'impact post-formation</li>
+        <li class="price-feature">OPCO & budget formation 100% eligible</li>
+      </ul>
+      <a href="#inscription" class="btn-primary" style="width:100%; text-align:center; display:block;">Nous contacter →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div id="inscription" class="cta-section">
+  <div class="section-label" style="text-align:center">Candidature ouverte</div>
+  <h2>Prêt à prendre<br>de l'avance ?</h2>
+  <p>La prochaine session commence en septembre. Les places sont limitées à 20 participants. Laissez votre email et on revient vers vous sous 48h.</p>
+  <div class="cta-form">
+    <input type="email" class="cta-input" placeholder="votre@email.com">
+    <a href="#" class="btn-primary">Je candidate →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <a href="#" class="logo" style="font-size:1.2rem">Fluent<span>AI</span></a>
+    <span class="footer-tagline">Le bootcamp IA pour les pros non-techniques · Paris</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#">Programme</a></li>
+    <li><a href="#">FAQ</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Mentions légales</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
