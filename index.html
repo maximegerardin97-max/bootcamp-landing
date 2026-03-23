@@ -632,6 +632,118 @@
     color: var(--muted);
   }
 
+  /* COMPANY LOGOS BANNER */
+  .logos-section {
+    border-bottom: 1px solid rgba(245,243,239,0.07);
+    padding: 3rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .logos-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245,243,239,0.3);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .logos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem 1.2rem;
+  }
+  .logo-badge {
+    padding: 0.55rem 1.1rem;
+    border: 1px solid rgba(245,243,239,0.1);
+    border-radius: 3px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: rgba(245,243,239,0.45);
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .logo-badge:hover { color: rgba(245,243,239,0.75); border-color: rgba(245,243,239,0.2); }
+
+  /* BUILDER LOGO */
+  .builder-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 1.2rem;
+    padding: 0.45rem 0.85rem;
+    border: 1px solid rgba(245,243,239,0.1);
+    border-radius: 3px;
+    background: rgba(245,243,239,0.03);
+  }
+  .builder-logo-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .builder-logo-name {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  /* SPEAKERS */
+  .speakers-wrapper {
+    border-top: 1px solid rgba(245,243,239,0.08);
+    border-bottom: 1px solid rgba(245,243,239,0.08);
+  }
+  .speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+  }
+  .speaker-card {
+    background: rgba(245,243,239,0.03);
+    border: 1px solid rgba(245,243,239,0.09);
+    border-radius: 3px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .speaker-company {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
+  }
+  .speaker-name {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .speaker-role {
+    font-size: 0.82rem;
+    color: rgba(245,243,239,0.45);
+  }
+  .speaker-topic {
+    font-size: 0.82rem;
+    color: rgba(245,243,239,0.6);
+    line-height: 1.55;
+    margin-top: 0.4rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(245,243,239,0.06);
+  }
+  @media (max-width: 900px) {
+    .logos-section { padding: 2.5rem 1.5rem; }
+    .speakers-grid { grid-template-columns: 1fr; }
+  }
+
   /* COUNTDOWN */
   .countdown-wrapper {
     text-align: center;
@@ -1383,6 +1495,25 @@
 </section>
 </div>
 
+<!-- COMPANY LOGOS -->
+<div class="logos-section">
+  <div class="logos-label">Nos participants & intervenants viennent de</div>
+  <div class="logos-grid">
+    <span class="logo-badge">Qonto</span>
+    <span class="logo-badge">Hugging Face</span>
+    <span class="logo-badge">Station F</span>
+    <span class="logo-badge">H Company</span>
+    <span class="logo-badge">Amo</span>
+    <span class="logo-badge">Mistral AI</span>
+    <span class="logo-badge">Partech</span>
+    <span class="logo-badge">BlaBlaCar</span>
+    <span class="logo-badge">Alan</span>
+    <span class="logo-badge">Neko Health</span>
+    <span class="logo-badge">Doctrine</span>
+    <span class="logo-badge">Contentsquare</span>
+  </div>
+</div>
+
 <!-- BUILT BY -->
 <div id="equipe" class="built-by-wrapper">
 <section>
@@ -1393,24 +1524,85 @@
   </div>
   <div class="built-by-grid">
     <div class="builder-card">
-      <div class="builder-company">Partech</div>
-      <div class="builder-role">Investment Professional</div>
+      <div class="builder-logo">
+        <span class="builder-logo-dot" style="background:#E84D1C;"></span>
+        <span class="builder-logo-name" style="color:#E84D1C;">Partech</span>
+      </div>
+      <div class="builder-company">Investment Professional</div>
+      <div class="builder-role">Venture Capital · Paris</div>
       <p class="builder-desc">Il évalue et finance des startups IA depuis leur seed. Il connaît le marché de l'intérieur, sait ce que les investisseurs regardent et vous donne la carte mentale que peu de gens ont.</p>
     </div>
     <div class="builder-card">
-      <div class="builder-company">Mistral AI</div>
-      <div class="builder-role">ML Engineer</div>
+      <div class="builder-logo">
+        <span class="builder-logo-dot" style="background:#FF6B00;"></span>
+        <span class="builder-logo-name" style="color:#FF6B00;">Mistral AI</span>
+      </div>
+      <div class="builder-company">ML Engineer</div>
+      <div class="builder-role">Large Language Models · Paris</div>
       <p class="builder-desc">Il construit les modèles que vous utilisez tous les jours. Il traduit la complexité technique en compréhension actionnable — pour que vous sachiez exactement ce que l'IA peut et ne peut pas faire.</p>
     </div>
     <div class="builder-card">
-      <div class="builder-company">Neko Health</div>
-      <div class="builder-role">Product Leader</div>
+      <div class="builder-logo">
+        <span class="builder-logo-dot" style="background:#00B5B1;"></span>
+        <span class="builder-logo-name" style="color:#00B5B1;">Neko Health</span>
+      </div>
+      <div class="builder-company">Product Leader</div>
+      <div class="builder-role">AI Health Products · Stockholm</div>
       <p class="builder-desc">Il pilote des produits IA à impact réel dans l'une des healthtech les plus ambitieuses du monde. Il vous apprend à penser en PM : comment évaluer un vendor, briefer un ingénieur, et construire un business case qui convainc.</p>
     </div>
   </div>
 </section>
 </div>
 
+
+<!-- SPEAKERS -->
+<div class="speakers-wrapper" style="position:relative; z-index:1;">
+<section>
+  <div style="text-align:center; margin-bottom:0;">
+    <div class="section-label" style="display:flex; justify-content:center;">Intervenants invités</div>
+    <h2>Des praticiens,<br>pas des théoriciens.</h2>
+    <p style="color:rgba(245,243,239,0.55); max-width:500px; margin:0 auto; font-size:0.98rem; line-height:1.75;">Chaque session accueille un intervenant du terrain — chercheur, fondateur, ou opérateur — qui partage ce qu'il fait vraiment avec l'IA.</p>
+  </div>
+  <div class="speakers-grid">
+    <div class="speaker-card">
+      <div class="speaker-company">Hugging Face</div>
+      <div class="speaker-name">ML Research Engineer</div>
+      <div class="speaker-role">Open-source AI · New York / Paris</div>
+      <div class="speaker-topic">Comment les modèles open-source changent l'accès à l'IA — et ce que ça signifie pour vous.</div>
+    </div>
+    <div class="speaker-card">
+      <div class="speaker-company">H Company</div>
+      <div class="speaker-name">Co-fondateur</div>
+      <div class="speaker-role">Agents IA · Paris</div>
+      <div class="speaker-topic">Construire des agents IA autonomes : où en est la recherche, ce qui marche vraiment, ce qui arrive ensuite.</div>
+    </div>
+    <div class="speaker-card">
+      <div class="speaker-company">Qonto</div>
+      <div class="speaker-name">Head of AI Products</div>
+      <div class="speaker-role">Fintech · Paris</div>
+      <div class="speaker-topic">Déployer l'IA dans une scale-up de 1 500 personnes : les vrais chantiers, les vraies résistances, les vraies victoires.</div>
+    </div>
+    <div class="speaker-card">
+      <div class="speaker-company">Station F</div>
+      <div class="speaker-name">Program Director</div>
+      <div class="speaker-role">Startup Ecosystem · Paris</div>
+      <div class="speaker-topic">Ce que les 1 000 startups du campus ont en commun : elles utilisent toutes l'IA comme levier de compétitivité dès le jour 1.</div>
+    </div>
+    <div class="speaker-card">
+      <div class="speaker-company">Amo</div>
+      <div class="speaker-name">CTO & Co-fondateur</div>
+      <div class="speaker-role">PropTech AI · Paris</div>
+      <div class="speaker-topic">Comment une startup de 30 personnes rivalise avec des équipes 10x plus grandes grâce à une stack IA bien conçue.</div>
+    </div>
+    <div class="speaker-card">
+      <div class="speaker-company">Mistral AI</div>
+      <div class="speaker-name">Developer Relations</div>
+      <div class="speaker-role">LLMs · Paris</div>
+      <div class="speaker-topic">Le futur des LLMs en France : ce que Mistral construit, et comment l'utiliser mieux que la majorité des gens.</div>
+    </div>
+  </div>
+</section>
+</div>
 
 <!-- PROGRAMME -->
 <section id="programme">
