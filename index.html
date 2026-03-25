@@ -954,26 +954,32 @@
     gap: 1.8rem 3.5rem;
   }
   .company-logo-img {
-    height: 26px;
-    width: auto;
-    max-width: 120px;
+    height: 32px;
+    width: 32px;
     object-fit: contain;
     filter: brightness(0) invert(1);
-    opacity: 0.45;
+    opacity: 0.55;
     transition: opacity 0.2s;
   }
-  .company-logo-img:hover { opacity: 0.85; }
+  .company-logo-img.wide {
+    width: auto;
+    max-width: 110px;
+  }
+  .company-logo-img:hover { opacity: 0.9; }
 
   /* BUILDER LOGO */
   .builder-logo-img {
     height: 34px;
-    width: auto;
-    max-width: 140px;
+    width: 34px;
     object-fit: contain;
     filter: brightness(0) invert(1);
     opacity: 0.85;
     margin-bottom: 1.2rem;
     display: block;
+  }
+  .builder-logo-img.wide {
+    width: auto;
+    max-width: 120px;
   }
 
   /* SPEAKERS */
@@ -1834,19 +1840,19 @@
   <div class="section-label" style="margin-bottom:2rem;">Vos formateurs</div>
   <div class="built-by-grid">
     <div class="builder-card">
-      <img src="https://logo.clearbit.com/partech.vc" alt="Partech" class="builder-logo-img" onerror="this.style.display='none'">
+      <img src="https://www.google.com/s2/favicons?domain=partech.vc&sz=128" alt="Partech" class="builder-logo-img">
       <div class="builder-company">Investment Professional</div>
       <div class="builder-role">Venture Capital · Paris</div>
       <p class="builder-desc">Il évalue et finance des startups IA depuis leur seed. Il connaît le marché de l'intérieur, sait ce que les investisseurs regardent et vous donne la carte mentale que peu de gens ont.</p>
     </div>
     <div class="builder-card">
-      <img src="https://logo.clearbit.com/mistral.ai" alt="Mistral AI" class="builder-logo-img" onerror="this.style.display='none'">
+      <img src="https://cdn.simpleicons.org/mistralai" alt="Mistral AI" class="builder-logo-img wide">
       <div class="builder-company">ML Engineer</div>
       <div class="builder-role">Large Language Models · Paris</div>
       <p class="builder-desc">Il construit les modèles que vous utilisez tous les jours. Il traduit la complexité technique en compréhension actionnable — pour que vous sachiez exactement ce que l'IA peut et ne peut pas faire.</p>
     </div>
     <div class="builder-card">
-      <img src="https://logo.clearbit.com/neko.health" alt="Neko Health" class="builder-logo-img" onerror="this.style.display='none'">
+      <img src="https://www.google.com/s2/favicons?domain=neko.health&sz=128" alt="Neko Health" class="builder-logo-img">
       <div class="builder-company">Product Leader</div>
       <div class="builder-role">AI Health Products · Stockholm</div>
       <p class="builder-desc">Il pilote des produits IA à impact réel dans l'une des healthtech les plus ambitieuses du monde. Il vous apprend à penser en PM : comment évaluer un vendor, briefer un ingénieur, et construire un business case qui convainc.</p>
@@ -1860,18 +1866,18 @@
 <div class="logos-section">
   <div class="logos-label">Nos intervenants viennent de</div>
   <div class="logos-grid">
-    <img src="https://logo.clearbit.com/qonto.com" alt="Qonto" class="company-logo-img" onerror="this.style.display='none'">
-    <img src="https://logo.clearbit.com/huggingface.co" alt="Hugging Face" class="company-logo-img" onerror="this.style.display='none'">
-    <img src="https://logo.clearbit.com/stationf.co" alt="Station F" class="company-logo-img" onerror="this.style.display='none'">
-    <img src="https://logo.clearbit.com/hcompany.ai" alt="H Company" class="company-logo-img" onerror="this.style.display='none'">
-    <img src="https://logo.clearbit.com/amo.co" alt="Amo" class="company-logo-img" onerror="this.style.display='none'">
-    <img src="https://logo.clearbit.com/mistral.ai" alt="Mistral AI" class="company-logo-img" onerror="this.style.display='none'">
-    <img src="https://logo.clearbit.com/partech.vc" alt="Partech" class="company-logo-img" onerror="this.style.display='none'">
-    <img src="https://logo.clearbit.com/blablacar.com" alt="BlaBlaCar" class="company-logo-img" onerror="this.style.display='none'">
-    <img src="https://logo.clearbit.com/alan.com" alt="Alan" class="company-logo-img" onerror="this.style.display='none'">
-    <img src="https://logo.clearbit.com/neko.health" alt="Neko Health" class="company-logo-img" onerror="this.style.display='none'">
-    <img src="https://logo.clearbit.com/doctrine.fr" alt="Doctrine" class="company-logo-img" onerror="this.style.display='none'">
-    <img src="https://logo.clearbit.com/contentsquare.com" alt="Contentsquare" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://www.google.com/s2/favicons?domain=qonto.com&sz=128" alt="Qonto" class="company-logo-img">
+    <img src="https://cdn.simpleicons.org/huggingface" alt="Hugging Face" class="company-logo-img wide">
+    <img src="https://www.google.com/s2/favicons?domain=stationf.co&sz=128" alt="Station F" class="company-logo-img">
+    <img src="https://www.google.com/s2/favicons?domain=hcompany.ai&sz=128" alt="H Company" class="company-logo-img">
+    <img src="https://www.google.com/s2/favicons?domain=amo.co&sz=128" alt="Amo" class="company-logo-img">
+    <img src="https://cdn.simpleicons.org/mistralai" alt="Mistral AI" class="company-logo-img wide">
+    <img src="https://www.google.com/s2/favicons?domain=partech.vc&sz=128" alt="Partech" class="company-logo-img">
+    <img src="https://www.google.com/s2/favicons?domain=blablacar.com&sz=128" alt="BlaBlaCar" class="company-logo-img">
+    <img src="https://www.google.com/s2/favicons?domain=alan.com&sz=128" alt="Alan" class="company-logo-img">
+    <img src="https://www.google.com/s2/favicons?domain=neko.health&sz=128" alt="Neko Health" class="company-logo-img">
+    <img src="https://cdn.simpleicons.org/doctrine" alt="Doctrine" class="company-logo-img wide">
+    <img src="https://www.google.com/s2/favicons?domain=contentsquare.com&sz=128" alt="Contentsquare" class="company-logo-img">
   </div>
 </div>
 
