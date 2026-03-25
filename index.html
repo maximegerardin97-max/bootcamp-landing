@@ -951,42 +951,29 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 0.6rem 1.2rem;
+    gap: 1.8rem 3.5rem;
   }
-  .logo-badge {
-    padding: 0.55rem 1.1rem;
-    border: 1px solid rgba(245,243,239,0.1);
-    border-radius: 3px;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: rgba(245,243,239,0.45);
-    transition: color 0.2s, border-color 0.2s;
-    white-space: nowrap;
+  .company-logo-img {
+    height: 26px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.45;
+    transition: opacity 0.2s;
   }
-  .logo-badge:hover { color: rgba(245,243,239,0.75); border-color: rgba(245,243,239,0.2); }
+  .company-logo-img:hover { opacity: 0.85; }
 
   /* BUILDER LOGO */
-  .builder-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
+  .builder-logo-img {
+    height: 34px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
     margin-bottom: 1.2rem;
-    padding: 0.45rem 0.85rem;
-    border: 1px solid rgba(245,243,239,0.1);
-    border-radius: 3px;
-    background: rgba(245,243,239,0.03);
-  }
-  .builder-logo-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .builder-logo-name {
-    font-family: var(--sans);
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.01em;
+    display: block;
   }
 
   /* SPEAKERS */
@@ -1847,28 +1834,19 @@
   <div class="section-label" style="margin-bottom:2rem;">Vos formateurs</div>
   <div class="built-by-grid">
     <div class="builder-card">
-      <div class="builder-logo">
-        <span class="builder-logo-dot" style="background:#E84D1C;"></span>
-        <span class="builder-logo-name" style="color:#E84D1C;">Partech</span>
-      </div>
+      <img src="https://logo.clearbit.com/partech.vc" alt="Partech" class="builder-logo-img" onerror="this.style.display='none'">
       <div class="builder-company">Investment Professional</div>
       <div class="builder-role">Venture Capital · Paris</div>
       <p class="builder-desc">Il évalue et finance des startups IA depuis leur seed. Il connaît le marché de l'intérieur, sait ce que les investisseurs regardent et vous donne la carte mentale que peu de gens ont.</p>
     </div>
     <div class="builder-card">
-      <div class="builder-logo">
-        <span class="builder-logo-dot" style="background:#FF6B00;"></span>
-        <span class="builder-logo-name" style="color:#FF6B00;">Mistral AI</span>
-      </div>
+      <img src="https://logo.clearbit.com/mistral.ai" alt="Mistral AI" class="builder-logo-img" onerror="this.style.display='none'">
       <div class="builder-company">ML Engineer</div>
       <div class="builder-role">Large Language Models · Paris</div>
       <p class="builder-desc">Il construit les modèles que vous utilisez tous les jours. Il traduit la complexité technique en compréhension actionnable — pour que vous sachiez exactement ce que l'IA peut et ne peut pas faire.</p>
     </div>
     <div class="builder-card">
-      <div class="builder-logo">
-        <span class="builder-logo-dot" style="background:#00B5B1;"></span>
-        <span class="builder-logo-name" style="color:#00B5B1;">Neko Health</span>
-      </div>
+      <img src="https://logo.clearbit.com/neko.health" alt="Neko Health" class="builder-logo-img" onerror="this.style.display='none'">
       <div class="builder-company">Product Leader</div>
       <div class="builder-role">AI Health Products · Stockholm</div>
       <p class="builder-desc">Il pilote des produits IA à impact réel dans l'une des healthtech les plus ambitieuses du monde. Il vous apprend à penser en PM : comment évaluer un vendor, briefer un ingénieur, et construire un business case qui convainc.</p>
@@ -1882,18 +1860,18 @@
 <div class="logos-section">
   <div class="logos-label">Nos intervenants viennent de</div>
   <div class="logos-grid">
-    <span class="logo-badge">Qonto</span>
-    <span class="logo-badge">Hugging Face</span>
-    <span class="logo-badge">Station F</span>
-    <span class="logo-badge">H Company</span>
-    <span class="logo-badge">Amo</span>
-    <span class="logo-badge">Mistral AI</span>
-    <span class="logo-badge">Partech</span>
-    <span class="logo-badge">BlaBlaCar</span>
-    <span class="logo-badge">Alan</span>
-    <span class="logo-badge">Neko Health</span>
-    <span class="logo-badge">Doctrine</span>
-    <span class="logo-badge">Contentsquare</span>
+    <img src="https://logo.clearbit.com/qonto.com" alt="Qonto" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://logo.clearbit.com/huggingface.co" alt="Hugging Face" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://logo.clearbit.com/stationf.co" alt="Station F" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://logo.clearbit.com/hcompany.ai" alt="H Company" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://logo.clearbit.com/amo.co" alt="Amo" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://logo.clearbit.com/mistral.ai" alt="Mistral AI" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://logo.clearbit.com/partech.vc" alt="Partech" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://logo.clearbit.com/blablacar.com" alt="BlaBlaCar" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://logo.clearbit.com/alan.com" alt="Alan" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://logo.clearbit.com/neko.health" alt="Neko Health" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://logo.clearbit.com/doctrine.fr" alt="Doctrine" class="company-logo-img" onerror="this.style.display='none'">
+    <img src="https://logo.clearbit.com/contentsquare.com" alt="Contentsquare" class="company-logo-img" onerror="this.style.display='none'">
   </div>
 </div>
 
