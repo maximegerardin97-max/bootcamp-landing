@@ -1624,6 +1624,80 @@
   }
   .video-context strong { color: var(--white); }
 
+  /* HERO RATING ROW */
+  .hero-rating { display:flex; align-items:center; gap:0.8rem; margin-bottom:1.5rem; }
+  .hero-faces { display:flex; }
+  .face-avatar { width:30px; height:30px; border-radius:50%; border:2px solid #0a0a0a; object-fit:cover; margin-left:-8px; }
+  .face-avatar:first-child { margin-left:0; }
+  .stars { color:#f5c518; font-size:0.9rem; letter-spacing:0.06em; }
+  .stars-label { font-size:0.78rem; color:rgba(245,243,239,0.5); }
+
+  /* ROTATING TEXT */
+  .rotating-text { margin-top:1.5rem; font-size:0.88rem; color:rgba(245,243,239,0.4); line-height:2; display:flex; flex-direction:column; gap:0.1rem; }
+  .rotate-line { display:flex; align-items:baseline; gap:0.3em; flex-wrap:wrap; }
+  .rotating-word { color:var(--accent); font-weight:500; transition:opacity 0.25s; min-width:90px; display:inline-block; }
+  .rotating-word.fade-out { opacity:0; }
+
+  /* PROBLEM SECTION */
+  .problem-section { max-width:760px; margin:0 auto; }
+  .problem-stat { font-size:clamp(3rem,6vw,5rem); font-weight:300; color:var(--white); letter-spacing:-0.03em; line-height:1; margin:2rem 0 0.5rem; }
+  .problem-stat span { color:var(--accent); }
+  .problem-body { color:rgba(245,243,239,0.65); font-size:1rem; line-height:1.85; margin-top:1.5rem; }
+  .problem-body p { margin-bottom:1.2rem; }
+  .problem-body strong { color:var(--white); font-weight:600; }
+  .problem-closing { margin-top:2.5rem; font-size:1.15rem; color:var(--white); font-weight:500; line-height:1.6; border-left:3px solid var(--accent); padding-left:1.5rem; }
+
+  /* SOCIAL PROOF STRIP */
+  .sp-strip { border-top:1px solid rgba(245,243,239,0.07); border-bottom:1px solid rgba(245,243,239,0.07); background:rgba(245,243,239,0.015); padding:2rem 4rem; position:relative; z-index:1; }
+  .sp-grid { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:2rem 3.5rem; }
+  .sp-item { display:flex; align-items:center; gap:0.7rem; opacity:0.6; transition:opacity 0.2s; }
+  .sp-item:hover { opacity:1; }
+  .sp-face { width:36px; height:36px; border-radius:50%; object-fit:cover; border:1px solid rgba(245,243,239,0.15); flex-shrink:0; }
+  .sp-info { display:flex; flex-direction:column; gap:0.1rem; }
+  .sp-name { font-size:0.82rem; font-weight:500; color:var(--white); }
+  .sp-company { font-size:0.72rem; color:rgba(245,243,239,0.45); }
+  .sp-stars { color:#f5c518; font-size:0.72rem; }
+
+  /* TEAM LOGOS ROW */
+  .team-logos { display:flex; gap:0.5rem; margin-bottom:1.2rem; flex-wrap:wrap; }
+  .team-logo-badge { display:inline-flex; align-items:center; gap:0.35rem; padding:0.25rem 0.6rem; background:rgba(245,243,239,0.04); border:1px solid rgba(245,243,239,0.1); border-radius:3px; font-size:0.72rem; font-weight:500; color:rgba(245,243,239,0.55); letter-spacing:0.02em; }
+
+  /* SECTION MANIFESTO */
+  .manifesto-section { max-width:800px; margin:0 auto; }
+  .manifesto-body { color:rgba(245,243,239,0.65); font-size:1rem; line-height:1.9; }
+  .manifesto-body p { margin-bottom:1.3rem; }
+  .manifesto-body strong { color:var(--white); }
+  .manifesto-highlight { margin-top:2.5rem; padding:1.8rem 2rem; background:rgba(200,80,60,0.06); border:1px solid rgba(200,80,60,0.2); border-radius:4px; font-size:1.05rem; color:var(--white); font-weight:400; line-height:1.7; }
+
+  /* PROGRAMME MODULES (new accordion style) */
+  .module-accordion { border:1px solid rgba(245,243,239,0.1); border-radius:4px; overflow:hidden; margin-bottom:0.8rem; }
+  .module-accordion summary { list-style:none; cursor:pointer; padding:1.4rem 1.8rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; background:rgba(245,243,239,0.02); transition:background 0.2s; }
+  .module-accordion summary:hover { background:rgba(245,243,239,0.04); }
+  .module-accordion summary::-webkit-details-marker { display:none; }
+  .module-accordion[open] summary { background:rgba(245,243,239,0.04); border-bottom:1px solid rgba(245,243,239,0.08); }
+  .module-acc-title { display:flex; align-items:center; gap:1rem; }
+  .module-acc-num { font-family:var(--mono); font-size:0.72rem; color:var(--accent); letter-spacing:0.1em; flex-shrink:0; }
+  .module-acc-name { font-size:0.98rem; font-weight:500; color:var(--white); }
+  .module-acc-dur { font-size:0.75rem; color:rgba(245,243,239,0.35); white-space:nowrap; }
+  .module-acc-arrow { color:rgba(245,243,239,0.3); font-size:0.8rem; transition:transform 0.2s; flex-shrink:0; }
+  .module-accordion[open] .module-acc-arrow { transform:rotate(180deg); }
+  .module-acc-body { padding:1.4rem 1.8rem; }
+  .module-acc-body p { font-size:0.88rem; color:rgba(245,243,239,0.6); line-height:1.75; margin-bottom:0.8rem; }
+  .module-acc-body ul { padding-left:1.2rem; margin-bottom:0.8rem; }
+  .module-acc-body li { font-size:0.85rem; color:rgba(245,243,239,0.55); line-height:1.7; margin-bottom:0.3rem; }
+  .module-acc-exercise { margin-top:1rem; padding:0.9rem 1.1rem; background:rgba(245,243,239,0.03); border-left:2px solid var(--accent); border-radius:2px; font-size:0.82rem; color:rgba(245,243,239,0.5); }
+  .module-acc-exercise strong { color:var(--accent); font-weight:600; }
+
+  /* OUTCOMES LIST (new) */
+  .skills-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; margin-top:2rem; }
+  .skill-item { display:flex; align-items:flex-start; gap:0.6rem; padding:0.8rem 1rem; background:rgba(245,243,239,0.025); border:1px solid rgba(245,243,239,0.08); border-radius:3px; font-size:0.85rem; color:rgba(245,243,239,0.7); line-height:1.5; }
+  .skill-check { color:var(--accent); flex-shrink:0; font-size:0.85rem; margin-top:0.1rem; }
+
+  /* FOOTER QUOTE */
+  .footer-quote-section { position:relative; z-index:1; text-align:center; padding:5rem 4rem; border-top:1px solid rgba(245,243,239,0.07); }
+  .footer-quote-text { font-size:clamp(1.1rem,2.5vw,1.5rem); font-weight:300; color:rgba(245,243,239,0.75); max-width:650px; margin:0 auto 0.8rem; line-height:1.6; letter-spacing:-0.01em; }
+  .footer-quote-attr { font-size:0.82rem; color:rgba(245,243,239,0.35); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:3rem; }
+
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
@@ -1688,377 +1762,352 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="eyebrow fade-up">Paris · Bootcamp IA · Déclic AI</div>
-    <h1 class="fade-up delay-1">L'IA ne vous<br>remplacera pas.<br><span style="color:var(--accent);">Mais ceux qui<br>la maîtrisent, oui.</span></h1>
-    <p class="hero-desc fade-up delay-2">Le bootcamp IA de 5 semaines pour les pros — opérationnel sans écrire une ligne de code.</p>
-    <div class="hero-actions fade-up delay-3">
-      <a href="#inscription" class="btn-primary">Candidater à la prochaine session →</a>
-      <span class="btn-ghost">Voir le programme</span>
+    <div class="hero-rating fade-up">
+      <div class="hero-faces">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" class="face-avatar">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" class="face-avatar">
+        <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="" class="face-avatar">
+        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="" class="face-avatar">
+        <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="" class="face-avatar">
+      </div>
+      <span class="stars">★★★★★</span>
+      <span class="stars-label">5/5 · Nos anciens élèves</span>
     </div>
-    <div class="hero-stats fade-up delay-4">
-      <div class="stat-item">
-        <span class="stat-num">5</span>
-        <span class="stat-label">Semaines</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">~25h</span>
-        <span class="stat-label">Total</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">100%</span>
-        <span class="stat-label">Sans code</span>
-      </div>
+    <h1 class="fade-up delay-1">Vous sentez que vous<br>pourriez faire plus.<br><span style="color:var(--accent);">Reprenez le contrôle<br>avec l'IA.</span></h1>
+    <p class="hero-desc fade-up delay-2">Vous vous sentez submergés et ne savez pas par où commencer. Faites de l'IA votre co-pilote.</p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="#inscription" class="btn-primary">Construisez enfin le projet auquel vous pensez depuis des années →</a>
+    </div>
+    <div class="rotating-text fade-up delay-4">
+      <span class="rotate-line">Ne perdez plus de temps sur vos&nbsp;<span class="rotating-word" id="rotate-word-1">mails</span>.</span>
+      <span class="rotate-line">Automatisez votre&nbsp;<span class="rotating-word" id="rotate-word-2">outreach</span>.</span>
     </div>
   </div>
 
   <div class="hero-right">
     <div class="hero-card fade-up delay-2">
       <div class="card-tag">Vous vous reconnaissez ?</div>
-      <h3 class="card-headline">Vous êtes là<br>aujourd'hui.</h3>
+      <h3 class="card-headline">Vous utilisez<br>5% de l'IA.</h3>
       <ul class="fears-list">
         <li class="fear-item">
           <span class="fear-icon">😶‍🌫️</span>
-          <span class="fear-text">Vous avez testé ChatGPT une fois. Vous avez trouvé ça "sympa". Et c'est tout.</span>
+          <span class="fear-text">Vous sentez que vous pourriez faire plus — mais vous n'exploitez pas tout le potentiel.</span>
         </li>
         <li class="fear-item">
           <span class="fear-icon">⏳</span>
-          <span class="fear-text">Vous passez 3h par semaine à copier-coller des données d'un outil à l'autre.</span>
+          <span class="fear-text">Vous passez des heures sur des tâches de recherche, rédaction, analyse que l'IA pourrait faire en secondes.</span>
         </li>
         <li class="fear-item">
           <span class="fear-icon">😬</span>
-          <span class="fear-text">Un collègue sort un livrable en 20 minutes qui vous aurait pris une demi-journée — et vous ne savez pas comment.</span>
+          <span class="fear-text">Vous vous sentez submergés par le flot constant d'informations et ne savez pas par où commencer.</span>
         </li>
         <li class="fear-item">
-          <span class="fear-icon">📰</span>
-          <span class="fear-text">Vous voyez passer des articles sur l'IA tous les jours mais vous ne savez toujours pas quoi en faire concrètement.</span>
+          <span class="fear-icon">💡</span>
+          <span class="fear-text">Vous avez des projets en tête depuis des années, bloqués faute de temps ou de compétences techniques.</span>
         </li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- STRIP -->
-<div class="strip">
-  <div class="strip-track">
-    <span class="strip-text">Déclic AI · Paris</span>
-    <span class="strip-dot"></span>
-    <span class="strip-text">5 semaines · ~25h total</span>
-    <span class="strip-dot"></span>
-    <span class="strip-text">3h session + 2h async / semaine</span>
-    <span class="strip-dot"></span>
-    <span class="strip-text">Paris 11e + Remote</span>
-    <span class="strip-dot"></span>
-    <span class="strip-text">20 places · Offre de lancement à 999€</span>
-    <span class="strip-dot"></span>
-    <span class="strip-text">Candidature ouverte</span>
-    <span class="strip-dot"></span>
-    <span class="strip-text">Déclic AI · Paris</span>
-    <span class="strip-dot"></span>
-    <span class="strip-text">5 semaines · ~25h total</span>
-    <span class="strip-dot"></span>
-    <span class="strip-text">3h session + 2h async / semaine</span>
-    <span class="strip-dot"></span>
-    <span class="strip-text">Paris 11e + Remote</span>
-    <span class="strip-dot"></span>
-    <span class="strip-text">20 places · Offre de lancement à 999€</span>
-    <span class="strip-dot"></span>
-    <span class="strip-text">Candidature ouverte</span>
-    <span class="strip-dot"></span>
+<!-- SOCIAL PROOF STRIP -->
+<div class="sp-strip">
+  <div class="sp-grid">
+    <div class="sp-item">
+      <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Sylvain" class="sp-face">
+      <div class="sp-info">
+        <span class="sp-name">Sylvain · EY Parthenon</span>
+        <span class="sp-stars">★★★★★</span>
+      </div>
+    </div>
+    <div class="sp-item">
+      <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Thomas" class="sp-face">
+      <div class="sp-info">
+        <span class="sp-name">Thomas · BCG / Revolut</span>
+        <span class="sp-stars">★★★★★</span>
+      </div>
+    </div>
+    <div class="sp-item">
+      <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Eloi" class="sp-face">
+      <div class="sp-info">
+        <span class="sp-name">Eloi · Morningstar</span>
+        <span class="sp-stars">★★★★★</span>
+      </div>
+    </div>
+    <div class="sp-item">
+      <img src="https://randomuser.me/api/portraits/men/71.jpg" alt="Julien" class="sp-face">
+      <div class="sp-info">
+        <span class="sp-name">Julien · Tonnies</span>
+        <span class="sp-stars">★★★★★</span>
+      </div>
+    </div>
+    <div class="sp-item">
+      <img src="https://randomuser.me/api/portraits/men/38.jpg" alt="William" class="sp-face">
+      <div class="sp-info">
+        <span class="sp-name">William · Balasany</span>
+        <span class="sp-stars">★★★★★</span>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- TRAIN TRACK FIRE -->
+<!-- PROBLEM STATEMENT -->
 <div class="ttf-wrapper" style="border-top: 1px solid rgba(245,243,239,0.08); border-bottom: 1px solid rgba(245,243,239,0.08); background: rgba(245,243,239,0.02); position: relative; z-index: 1;">
 <section>
-  <div style="text-align:center; margin-bottom: 3.5rem;">
-    <div class="section-label" style="display:flex; justify-content:center;">La réalité</div>
-    <h2>Ce que les entreprises font —<br><em style="font-style:italic;">maintenant.</em></h2>
-    <p style="color:rgba(245,243,239,0.55); max-width:560px; margin: 1rem auto 0; font-size:0.98rem; line-height:1.75;">Les grandes entreprises n'attendent plus. Elles appliquent toutes le même playbook.</p>
-  </div>
-
-  <div class="ttf-grid">
-    <div class="ttf-card">
-      <div class="ttf-num">01</div>
-      <div class="ttf-title">TRAIN</div>
-      <p class="ttf-desc">Former les équipes à l'IA. Mapper chaque processus. Identifier ce qui est automatisable.</p>
+  <div class="problem-section">
+    <div class="section-label">Pourquoi Déclic IA</div>
+    <h2>On est partis<br>d'un constat simple.</h2>
+    <div class="problem-stat"><span>95%</span> des gens</div>
+    <div style="font-size:1.1rem; color:rgba(245,243,239,0.5); margin-top:0.3rem; margin-bottom:2rem;">n'utilisent que <strong style="color:var(--white);">5% du potentiel de l'IA.</strong></div>
+    <div class="problem-body">
+      <p>Trop de personnes dans notre entourage étaient en train de passer à côté. Elles passaient des heures sur des tâches de recherche, de scrapping, de prospection, de rédaction, d'analyse, de traitement de données que l'IA pouvait automatiser en quelques secondes.</p>
+      <p>Oui, ils connaissaient l'IA. Mais ils n'en exploitaient que 5%. Quand on leur demandait pourquoi, ils répondaient qu'ils percevaient bien qu'ils pourraient en tirer plus — mais qu'ils ne savaient pas par où commencer, n'avaient pas le temps de s'extraire de leur quotidien, et se sentaient submergés par le flot constant d'informations.</p>
+      <p>Alors ce travail, on l'a fait pour eux. On a passé des milliers d'heures à travailler avec l'IA pour discerner l'utile de l'inutile, le fiable du non fiable, et en extraire les cas d'usage les plus pertinents.</p>
+      <p>Aujourd'hui, l'IA fait partie de notre quotidien — du tri de nos emails à la réservation de nos vacances, en passant par la création de logiciels sur mesure pour notre travail.</p>
     </div>
-    <div class="ttf-card">
-      <div class="ttf-num">02</div>
-      <div class="ttf-title">TRACK</div>
-      <p class="ttf-desc">Déployer des agents IA. Mesurer l'usage, la consommation de tokens, la productivité de chaque employé.</p>
-    </div>
-    <div class="ttf-card ttf-card--fire">
-      <div class="ttf-num">03</div>
-      <div class="ttf-title">FIRE</div>
-      <p class="ttf-desc">Se séparer de ceux qui ne s'adaptent pas.</p>
-    </div>
-  </div>
-
-  <div class="ttf-quotes">
-    <blockquote class="ttf-quote">
-      <p>"Si un ingénieur payé 500 000 $ ne consomme pas au moins 250 000 $ en tokens IA par an, je vais être profondément alarmé."</p>
-      <cite>Jensen Huang, CEO de NVIDIA · GTC 2026, mars 2026</cite>
-    </blockquote>
-    <blockquote class="ttf-quote">
-      <p>"Les outils d'intelligence ont changé ce que signifie construire et gérer une entreprise. Une équipe bien plus petite peut faire plus, et mieux. Je pense que la plupart des entreprises sont en retard."</p>
-      <cite>Jack Dorsey, CEO de Block · Février 2026, après avoir licencié 40% de ses effectifs</cite>
-    </blockquote>
-    <blockquote class="ttf-quote">
-      <p>"Des projets qui nécessitaient de grandes équipes peuvent désormais être accomplis par une seule personne talentueuse."</p>
-      <cite>Mark Zuckerberg, CEO de Meta · Mars 2026</cite>
-    </blockquote>
-    <blockquote class="ttf-quote">
-      <p>"Ne pas adopter l'IA pourrait vous coûter votre prochaine promotion."</p>
-      <cite>Julie Sweet, CEO d'Accenture · GTC 2026</cite>
-    </blockquote>
-  </div>
-
-  <div class="ttf-closing">
-    La question n'est plus "est-ce que l'IA va changer mon métier&nbsp;?"<br>
-    C'est&nbsp;: <em>"est-ce que je serai du côté de ceux qui l'utilisent, ou de ceux qu'on remplace&nbsp;?"</em>
+    <div class="problem-closing">On est 10x plus productifs. On a eu le déclic, on veut vous le transmettre.</div>
   </div>
 </section>
 </div>
-
-<!-- MACRO CONTEXT CALLOUT -->
-<div style="position: relative; z-index: 1;">
-<section style="padding: 4rem 4rem;">
-  <div class="video-section">
-    <p class="video-quote">"You're not going to lose your job to AI —<br>but you'll lose it to <strong>someone who uses AI</strong>."</p>
-    <p class="video-attribution">Jensen Huang · CEO, NVIDIA</p>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/v9csjiPSyS0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <p class="video-context">Ce n'est plus de la prospective. C'est le présent.<br><strong>Ceux qui s'y mettent maintenant prennent une avance que les autres mettront des mois à rattraper.</strong></p>
-  </div>
-</section>
-</div>
-
-<!-- BUILT BY -->
-<div id="equipe" class="built-by-wrapper">
-<section>
-  <div class="section-label" style="margin-bottom:2rem;">Vos formateurs</div>
-  <div class="built-by-grid">
-    <div class="builder-card">
-      <img src="https://www.google.com/s2/favicons?domain=partech.vc&sz=128" alt="Partech" class="builder-logo-img">
-      <div class="builder-company">Investment Professional</div>
-      <div class="builder-role">Venture Capital · Paris</div>
-      <p class="builder-desc">Il évalue et finance des startups IA depuis leur seed. Il connaît le marché de l'intérieur, sait ce que les investisseurs regardent et vous donne la carte mentale que peu de gens ont.</p>
-    </div>
-    <div class="builder-card">
-      <img src="https://cdn.simpleicons.org/mistralai" alt="Mistral AI" class="builder-logo-img wide">
-      <div class="builder-company">ML Engineer</div>
-      <div class="builder-role">Large Language Models · Paris</div>
-      <p class="builder-desc">Il construit les modèles que vous utilisez tous les jours. Il traduit la complexité technique en compréhension actionnable — pour que vous sachiez exactement ce que l'IA peut et ne peut pas faire.</p>
-    </div>
-    <div class="builder-card">
-      <img src="https://www.google.com/s2/favicons?domain=neko.health&sz=128" alt="Neko Health" class="builder-logo-img">
-      <div class="builder-company">Product Leader</div>
-      <div class="builder-role">AI Health Products · Stockholm</div>
-      <p class="builder-desc">Il pilote des produits IA à impact réel dans l'une des healthtech les plus ambitieuses du monde. Il vous apprend à penser en PM : comment évaluer un vendor, briefer un ingénieur, et construire un business case qui convainc.</p>
-    </div>
-  </div>
-</section>
-</div>
-
-
-<!-- COMPANY LOGOS -->
-<div class="logos-section">
-  <div class="logos-label">Nos intervenants viennent de</div>
-  <div class="logos-grid">
-    <img src="https://www.google.com/s2/favicons?domain=qonto.com&sz=128" alt="Qonto" class="company-logo-img">
-    <img src="https://cdn.simpleicons.org/huggingface" alt="Hugging Face" class="company-logo-img wide">
-    <img src="https://www.google.com/s2/favicons?domain=stationf.co&sz=128" alt="Station F" class="company-logo-img">
-    <img src="https://www.google.com/s2/favicons?domain=hcompany.ai&sz=128" alt="H Company" class="company-logo-img">
-    <img src="https://www.google.com/s2/favicons?domain=amo.co&sz=128" alt="Amo" class="company-logo-img">
-    <img src="https://cdn.simpleicons.org/mistralai" alt="Mistral AI" class="company-logo-img wide">
-    <img src="https://www.google.com/s2/favicons?domain=partech.vc&sz=128" alt="Partech" class="company-logo-img">
-    <img src="https://www.google.com/s2/favicons?domain=blablacar.com&sz=128" alt="BlaBlaCar" class="company-logo-img">
-    <img src="https://www.google.com/s2/favicons?domain=alan.com&sz=128" alt="Alan" class="company-logo-img">
-    <img src="https://www.google.com/s2/favicons?domain=neko.health&sz=128" alt="Neko Health" class="company-logo-img">
-    <img src="https://cdn.simpleicons.org/doctrine" alt="Doctrine" class="company-logo-img wide">
-    <img src="https://www.google.com/s2/favicons?domain=contentsquare.com&sz=128" alt="Contentsquare" class="company-logo-img">
-  </div>
-</div>
-
-<!-- PROGRAMME -->
-<section id="programme">
-  <div class="program-grid">
-    <div class="program-intro">
-      <div class="section-label">Le programme</div>
-      <h2>Pratique.<br>Concret.<br>Immédiat.</h2>
-      <p>Pas de théorie. Chaque module est ancré dans des cas réels issus du conseil, de la finance, du marketing et des opérations.</p>
-
-      <div style="margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.8rem;">
-        <div style="background: rgba(245,243,239,0.04); border: 1px solid rgba(245,243,239,0.1); border-radius: 3px; padding: 1.5rem;">
-          <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">Format</div>
-          <div style="font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem;">5 semaines · ~25h total</div>
-          <div style="font-size: 0.85rem; color: var(--muted);">3h de session + 2h de travail async par semaine</div>
-          <div style="font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem;">📍 En présentiel à Paris 11ème — ou en remote, au choix</div>
-        </div>
-        <div style="background: rgba(245,243,239,0.04); border: 1px solid rgba(245,243,239,0.1); border-radius: 3px; padding: 1.5rem;">
-          <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">Compatible avec</div>
-          <div style="font-size: 0.85rem; color: var(--muted);">Un emploi à temps plein — format soir ou week-end</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modules">
-      <div class="module">
-        <span class="module-num">S1</span>
-        <div>
-          <div class="module-title">Parler IA couramment</div>
-          <div class="module-desc">LLMs, tokens, hallucinations · carte des acteurs (OpenAI, Anthropic, Google, Mistral) · stack IA en clair · filtre hype · <span style="color:var(--accent);font-size:0.8rem;">Perplexity · Claude</span><br><span style="color:rgba(245,243,239,0.4);font-size:0.78rem;">Async : briefing paysage IA pour votre secteur, format présentation manager</span></div>
-        </div>
-        <span class="module-weeks">3h + 2h async</span>
-      </div>
-      <div class="module">
-        <span class="module-num">S2</span>
-        <div>
-          <div class="module-title">Faire le travail de trois personnes</div>
-          <div class="module-desc">Prompting avancé · Claude vs ChatGPT vs Gemini · IA pour les docs, les données et les présentations · <span style="color:var(--accent);font-size:0.8rem;">Claude · NotebookLM · Julius AI · Gamma</span><br><span style="color:rgba(245,243,239,0.4);font-size:0.78rem;">Async : refaire une tâche récurrente (3h+) entièrement avec l'IA — avant/après en 3 slides</span></div>
-        </div>
-        <span class="module-weeks">3h + 2h async</span>
-      </div>
-      <div class="module">
-        <span class="module-num">S3</span>
-        <div>
-          <div class="module-title">Votre première automation (en live)</div>
-          <div class="module-desc">Penser en workflows · Make vs N8N vs Zapier · connecter Gmail, Notion, Slack et des modèles IA sans coder · live build en temps réel · <span style="color:var(--accent);font-size:0.8rem;">Make · N8N · Claude · Notion</span><br><span style="color:rgba(245,243,239,0.4);font-size:0.78rem;">Async : première automatisation live (résumé newsletters, Notion depuis transcript…)</span></div>
-        </div>
-        <span class="module-weeks">3h + 2h async</span>
-      </div>
-      <div class="module">
-        <span class="module-num">S4</span>
-        <div>
-          <div class="module-title">Agents IA et pipelines multi-étapes</div>
-          <div class="module-desc">Chaîner les automatisations · construire son premier agent IA · RAG en clair · pipeline multi-étapes · <span style="color:var(--accent);font-size:0.8rem;">Make · N8N · Claude API · Gmail · Notion · Slack</span><br><span style="color:rgba(245,243,239,0.4);font-size:0.78rem;">Async : automatisation 3 étapes min. + un modèle IA (veille concurrentielle, bot Slack, classification email…)</span></div>
-        </div>
-        <span class="module-weeks">3h + 2h async</span>
-      </div>
-      <div class="module">
-        <span class="module-num">☁️</span>
-        <div>
-          <div class="module-title">Module Async · Devenir le référent IA de votre boîte</div>
-          <div class="module-desc">4 vidéos (~45 min) : audit de votre poste face à l'IA · produit IA & conversation avec les techs · business case & ROI · IA responsable, biais, RGPD · <span style="color:var(--accent);font-size:0.8rem;">Claude · Gamma</span><br><span style="color:rgba(245,243,239,0.4);font-size:0.78rem;">Livrable : pitch IA 5 slides pour votre entreprise réelle — devient votre présentation Demo Day</span></div>
-        </div>
-        <span class="module-weeks">~3h auto-formé</span>
-      </div>
-      <div class="module">
-        <span class="module-num">S5</span>
-        <div>
-          <div class="module-title">Demo Day — présentez devant un jury tech</div>
-          <div class="module-desc">Portfolio & personal brand · atelier post LinkedIn · présentations devant un jury de PMs, fondateurs et recruteurs partenaires · feedback & intros directes · <span style="color:var(--accent);font-size:0.8rem;">Stack libre</span></div>
-        </div>
-        <span class="module-weeks">3h session</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <!-- TESTIMONIALS -->
 <div class="testi-section" style="position:relative; z-index:1;">
 <section>
-  <div class="section-label" style="text-align:center; display:block; margin-bottom:1rem;">Ils sont passés par là</div>
-  <h2 style="text-align:center; margin-bottom:3rem;">Ce qu'ils en disent.</h2>
+  <div class="section-label" style="text-align:center; display:block; margin-bottom:1rem;">Ils ont eu le Déclic</div>
+  <h2 style="text-align:center; margin-bottom:1.5rem;">Ce qu'ils en disent.</h2>
+
+  <!-- Company logos banner -->
+  <div class="logos-section" style="border:none; padding:1.5rem 0 3rem; margin:0;">
+    <div class="logos-grid">
+      <img src="https://www.google.com/s2/favicons?domain=ey.com&sz=128" alt="EY Parthenon" class="company-logo-img">
+      <img src="https://www.google.com/s2/favicons?domain=bcg.com&sz=128" alt="BCG" class="company-logo-img">
+      <img src="https://www.google.com/s2/favicons?domain=revolut.com&sz=128" alt="Revolut" class="company-logo-img">
+      <img src="https://www.google.com/s2/favicons?domain=onepoint.fr&sz=128" alt="OnePoint" class="company-logo-img">
+      <img src="https://www.google.com/s2/favicons?domain=morningstar.com&sz=128" alt="Morningstar" class="company-logo-img">
+      <img src="https://www.google.com/s2/favicons?domain=toennies.de&sz=128" alt="Tonnies" class="company-logo-img">
+      <img src="https://www.google.com/s2/favicons?domain=balasany.com&sz=128" alt="Balasany" class="company-logo-img">
+    </div>
+  </div>
+
   <div class="testi-grid" style="grid-template-columns: repeat(2,1fr);">
     <div class="testi-card">
-      <p class="testi-quote">« Je sortais de ma première expérience en conseil et je voulais me différencier. Déclic m'a donné une compréhension concrète de l'IA que mes collègues n'ont pas — ça s'est vu dès le premier mois. J'ai fait le saut vers la tech 6 mois après. »</p>
+      <p class="testi-quote">« C'est simple, entre les analyses de marché, les analyses quanti, le traitement des emails, la prise de notes, l'automatisation de la création de slides, j'ai économisé des dizaines d'heures par semaine. »</p>
       <div class="testi-author">
         <span class="testi-name">Sylvain</span>
-        <span class="testi-role">Consultant stratégie → Tech</span>
+        <span class="testi-role">EY Parthenon</span>
       </div>
     </div>
     <div class="testi-card">
-      <p class="testi-quote">« Analyste en PE, je passais mes nuits sur des modèles Excel. Déclic m'a appris à automatiser une grosse partie de mon travail en quelques semaines. Mes seniors ne comprennent pas comment je rends les choses aussi vite. »</p>
+      <p class="testi-quote">« Je ne sais pas coder, je n'ai jamais su coder, et pourtant j'ai créé une solution qui automatise l'identification et le contact d'experts métiers — ça me prenait des heures, maintenant je fais ça en un clic. »</p>
       <div class="testi-author">
-        <span class="testi-name">Victor</span>
-        <span class="testi-role">Analyste, Private Equity</span>
+        <span class="testi-name">Thomas</span>
+        <span class="testi-role">BCG / Revolut</span>
       </div>
     </div>
     <div class="testi-card">
-      <p class="testi-quote">« J'avais quelques années dans l'hôtellerie et l'envie de créer quelque chose. Déclic m'a donné les outils pour construire un MVP seule, sans équipe tech. Je lance ma boîte dans 2 mois — ça n'aurait pas été possible sans cette formation. »</p>
+      <p class="testi-quote">« Il y a eu un avant et un après pour moi. Je pouvais passer des heures pour avoir une première ébauche de mes modèles Excel — maintenant c'est une affaire de minutes. »</p>
       <div class="testi-author">
-        <span class="testi-name">Marguerite</span>
-        <span class="testi-role">Hospitality → Fondatrice</span>
+        <span class="testi-name">Eloi</span>
+        <span class="testi-role">Morningstar</span>
       </div>
     </div>
     <div class="testi-card">
-      <p class="testi-quote">« Chief of staff depuis un an dans une scale-up, je jonglais avec tout. Déclic m'a appris à automatiser le reporting, les briefs, les comptes-rendus. Mon CEO me demande régulièrement comment je gère autant seul. »</p>
+      <p class="testi-quote">« Il y avait un problème dans notre supply chain, on avait la donnée mais on ne savait pas où chercher — l'IA a trouvé en 5 minutes. Je n'aurais jamais eu ce réflexe avant. »</p>
       <div class="testi-author">
-        <span class="testi-name">Maxime</span>
-        <span class="testi-role">Chief of Staff, Scale-up</span>
+        <span class="testi-name">Julien</span>
+        <span class="testi-role">Tonnies</span>
+      </div>
+    </div>
+  </div>
+  <div class="testi-grid" style="grid-template-columns: 1fr; margin-top:0.8rem;">
+    <div class="testi-card" style="max-width:600px; margin:0 auto;">
+      <p class="testi-quote">« La formation la plus concrète que j'ai suivie. Pas de blabla, on sort de là avec des outils opérationnels. »</p>
+      <div class="testi-author">
+        <span class="testi-name">William</span>
+        <span class="testi-role">Balasany</span>
       </div>
     </div>
   </div>
 </section>
 </div>
 
+<!-- TEAM -->
+<div id="equipe" class="built-by-wrapper">
+<section>
+  <div class="section-label" style="margin-bottom:2rem;">Qui sommes-nous ?</div>
+  <div class="built-by-grid">
+    <div class="builder-card">
+      <div class="team-logos">
+        <span class="team-logo-badge">Partech</span>
+        <span class="team-logo-badge">PJT Partners</span>
+        <span class="team-logo-badge">HEC Paris</span>
+      </div>
+      <div class="builder-company">Louis Dessal</div>
+      <div class="builder-role">Investisseur · Venture Capital</div>
+      <p class="builder-desc">Investisseur chez Partech Partners, ancien élève et professeur à HEC Paris, Louis a passé 6 ans à investir dans la tech. "À ma droite, un entrepreneur m'explique avoir créé une équipe de dev gérée par des agents IA, multipliant sa productivité par 100. À ma gauche, un autre m'avoue qu'il n'arrive pas à faire adopter l'IA à ses équipes. Le fossé était là."</p>
+    </div>
+    <div class="builder-card">
+      <div class="team-logos">
+        <span class="team-logo-badge">Mistral AI</span>
+        <span class="team-logo-badge">HEC Paris</span>
+      </div>
+      <div class="builder-company">Valentin</div>
+      <div class="builder-role">ML Engineer · LLMs</div>
+      <p class="builder-desc">ML Engineer au cœur de la machine. Valentin conçoit et entraîne les modèles d'IA de demain. "Je passe mes journées à entraîner les modèles qui font les gros titres. Mais le vrai défi aujourd'hui, ce n'est plus seulement de créer l'IA la plus puissante, c'est de vous apprendre à vous en servir pour de vrai au quotidien."</p>
+    </div>
+    <div class="builder-card">
+      <div class="team-logos">
+        <span class="team-logo-badge">Amo</span>
+        <span class="team-logo-badge">Neko Health</span>
+        <span class="team-logo-badge">HEC Paris</span>
+      </div>
+      <div class="builder-company">Maxime Gerardin</div>
+      <div class="builder-role">Product Manager · IA</div>
+      <p class="builder-desc">Product Manager et architecte des usages. Son expertise : transformer des technologies complexes en solutions simples. "Dans la tech, on s'extasie sur l'algorithme. Mais un outil n'a de valeur que s'il est utilisé. Le déclic, c'est quand on arrête de simplement 'chatter' avec une IA pour commencer à construire ses propres solutions."</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- L'IA NE VOUS REMPLACERA PAS -->
+<div class="ttf-wrapper" style="border-top: 1px solid rgba(245,243,239,0.08); border-bottom: 1px solid rgba(245,243,239,0.08); background: rgba(245,243,239,0.02); position: relative; z-index: 1;">
+<section>
+  <div class="manifesto-section">
+    <div class="section-label">Notre point de vue</div>
+    <h2>Non, l'IA ne vous<br>remplacera pas.</h2>
+    <div class="manifesto-body">
+      <p>Si certains oiseaux de mauvais augure essayent d'expliquer que l'IA va remplacer tous les travailleurs en col blanc, nous n'y croyons pas. La preuve : les dynamiques de recrutement même des entreprises qui la font — Anthropic, l'entreprise derrière Claude, a embauché plus de <strong>2 900 personnes sur les 12 derniers mois</strong>.</p>
+      <p>Ce dont nous sommes sûrs en revanche, c'est qu'il y a des <strong>gains de productivité majeurs</strong> à aller chercher. Le travailleur de demain ne travaillera pas comme celui d'hier. Personne ne sera remplacé par l'IA ; en revanche, ceux qui ne se mettront pas à la page ne seront plus compétitifs.</p>
+      <p>Il ne tient qu'à vous de devenir <strong>la référence IA de votre entourage, de votre équipe</strong>. Et c'est une bonne chose : vous pourrez enfin déléguer les parties de votre métier que vous n'aimez pas pour vous concentrer sur l'essentiel.</p>
+    </div>
+    <div class="manifesto-highlight">
+      L'horizon des possibles vient de s'étendre. Toutes les idées que vous aviez mises de côté par manque de temps ou de compétences techniques sont maintenant à votre portée.
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PROGRAMME -->
+<section id="programme">
+  <div class="section-label" style="margin-bottom:1rem;">Le programme</div>
+  <h2 style="margin-bottom:0.5rem;">De spectateur<br>à opérateur.</h2>
+  <p style="color:rgba(245,243,239,0.5); font-size:0.95rem; margin-bottom:3rem; max-width:560px;">5 modules. Des cas d'usage réels. Vous repartez avec des outils qui tournent — pas des slides.</p>
+
+  <details class="module-accordion" open>
+    <summary>
+      <div class="module-acc-title">
+        <span class="module-acc-num">MODULE 1 · 45 MIN</span>
+        <span class="module-acc-name">Comprendre le terrain</span>
+      </div>
+      <span class="module-acc-arrow">▼</span>
+    </summary>
+    <div class="module-acc-body">
+      <p>L'écosystème IA en 2025 : ce qui compte, ce qui est du bruit. Pas un glossaire — une carte mentale actionnable.</p>
+      <ul>
+        <li>Les modèles et leurs différences : Claude, GPT-4o/o3, Gemini 2.5, DeepSeek, Mistral — qui fait quoi, pour quel usage, à quel prix</li>
+        <li>Pourquoi le marché du logiciel est en train de basculer : l'effondrement du coût marginal du code</li>
+        <li>Les concepts clés introduits au fil de l'eau : LLM, tokens, context window, RAG, fine-tuning, agents, hallucinations</li>
+        <li>Les sources pour rester à jour : newsletters, comptes à suivre, comment filtrer le signal du bruit</li>
+      </ul>
+      <div class="module-acc-exercise"><strong>Exercice :</strong> chaque participant identifie 3 tâches répétitives de sa semaine type. Cette liste sera le fil rouge du bootcamp.</div>
+    </div>
+  </details>
+
+  <details class="module-accordion">
+    <summary>
+      <div class="module-acc-title">
+        <span class="module-acc-num">MODULE 2 · 1H30</span>
+        <span class="module-acc-name">Maîtriser la conversation avec l'IA</span>
+      </div>
+      <span class="module-acc-arrow">▼</span>
+    </summary>
+    <div class="module-acc-body">
+      <p>Savoir parler à un LLM, c'est la compétence socle. Tout le reste en dépend.</p>
+      <ul>
+        <li><strong style="color:var(--white);">Prompting :</strong> anatomie d'un bon prompt, prompt chaining, system prompts, Custom GPTs, chain-of-thought, meta-prompting</li>
+        <li><strong style="color:var(--white);">Fonctionnalités puissantes :</strong> Deep Research, analyse de fichiers, Canvas/Artifacts, Claude Code en mode tasks</li>
+        <li><strong style="color:var(--white);">Outils satellites :</strong> Granola, Fyxer, Perplexity, NotebookLM, Jasper — et comment les intégrer dans votre quotidien</li>
+      </ul>
+      <div class="module-acc-exercise"><strong>Exercice :</strong> résoudre en live une de vos 3 tâches avec Claude, en itérant sur le prompt jusqu'au résultat.</div>
+    </div>
+  </details>
+
+  <details class="module-accordion">
+    <summary>
+      <div class="module-acc-title">
+        <span class="module-acc-num">MODULE 3 · 2H</span>
+        <span class="module-acc-name">Automatiser vos workflows</span>
+      </div>
+      <span class="module-acc-arrow">▼</span>
+    </summary>
+    <div class="module-acc-body">
+      <p>Connecter vos outils entre eux pour que les tâches se fassent sans vous.</p>
+      <ul>
+        <li><strong style="color:var(--white);">Make / n8n / Zapier :</strong> trigger → action → filtre → branchement. On construit ensemble : tri d'emails, synthèse de réunion → Notion, reporting hebdo automatique</li>
+        <li><strong style="color:var(--white);">Claude Cowork / Computer Use :</strong> générer un deck PowerPoint, nettoyer un Excel, préparer 50 emails de prospection personnalisés</li>
+        <li><strong style="color:var(--white);">Agents et MCP :</strong> donner à Claude un accès direct à votre agenda, Drive, Slack, Notion</li>
+      </ul>
+      <div class="module-acc-exercise"><strong>Exercice :</strong> chaque participant met en place une automatisation fonctionnelle sur un de ses cas réels.</div>
+    </div>
+  </details>
+
+  <details class="module-accordion">
+    <summary>
+      <div class="module-acc-title">
+        <span class="module-acc-num">MODULE 4 · 2H</span>
+        <span class="module-acc-name">Construire vos propres outils</span>
+      </div>
+      <span class="module-acc-arrow">▼</span>
+    </summary>
+    <div class="module-acc-body">
+      <p>Vous décrivez ce que vous voulez en français. L'IA écrit le code. Vous avez un outil qui tourne.</p>
+      <ul>
+        <li><strong style="color:var(--white);">Le vibe coding :</strong> Lovable, Bolt.new, v0 (Vercel), Cursor, Windsurf, Claude Code — chaque plateforme par niveau de complexité</li>
+        <li><strong style="color:var(--white);">Atelier construction :</strong> dashboard de prospection, formulaire intelligent → Airtable, outil d'analyse de documents, landing page</li>
+        <li><strong style="color:var(--white);">Déploiement :</strong> Vercel, Netlify, Lovable hosting — mettre en ligne et partager avec son équipe</li>
+      </ul>
+      <div class="module-acc-exercise"><strong>Exercice :</strong> chaque participant définit un outil manquant dans son quotidien et en lance la construction.</div>
+    </div>
+  </details>
+
+  <details class="module-accordion">
+    <summary>
+      <div class="module-acc-title">
+        <span class="module-acc-num">MODULE 5 · 45 MIN</span>
+        <span class="module-acc-name">Déployer dans votre organisation</span>
+      </div>
+      <span class="module-acc-arrow">▼</span>
+    </summary>
+    <div class="module-acc-body">
+      <p>Repartir avec un plan d'action, pas juste de l'enthousiasme.</p>
+      <ul>
+        <li>Identifier les quick wins (déployables cette semaine) vs. les projets structurants (1–3 mois)</li>
+        <li>Convaincre en interne : démonstrations, ROI chiffré, adoption progressive par l'exemple</li>
+        <li>Risques et garde-fous : hallucinations, confidentialité, RGPD, dépendance fournisseur</li>
+        <li>Gouvernance minimale : charte d'usage IA, bonnes pratiques équipe, veille sur les évolutions</li>
+        <li>Construire sa stack personnelle : quels outils garder, comment rester à jour sans y passer 3h/jour</li>
+      </ul>
+    </div>
+  </details>
+</section>
+
 <!-- OUTCOMES -->
 <div class="outcomes-section">
 <section>
-  <div class="outcomes-wrapper">
-    <div>
-      <div class="section-label">Résultats</div>
-      <h2>Avant / Après.</h2>
-      <ul class="outcomes-list" style="margin-top: 2.5rem;">
-        <li class="outcome-item">
-          <div class="outcome-check">✓</div>
-          <p class="outcome-text"><strong>Avant :</strong> vous passez 4h à préparer un brief prospect. <strong>Après :</strong> votre automation le fait en 30 secondes.</p>
-        </li>
-        <li class="outcome-item">
-          <div class="outcome-check">✓</div>
-          <p class="outcome-text"><strong>Avant :</strong> vous regardez l'IA de loin. <strong>Après :</strong> vous présentez votre premier pipeline automatisé à votre manager.</p>
-        </li>
-        <li class="outcome-item">
-          <div class="outcome-check">✓</div>
-          <p class="outcome-text"><strong>Avant :</strong> "j'ai testé ChatGPT une fois". <strong>Après :</strong> vous maîtrisez Claude, GPT, Perplexity, Make, N8N et 10+ outils.</p>
-        </li>
-        <li class="outcome-item">
-          <div class="outcome-check">✓</div>
-          <p class="outcome-text"><strong>Avant :</strong> vous cherchez un emploi. <strong>Après :</strong> vous arrivez en entretien avec un portfolio de 5 projets IA concrets.</p>
-        </li>
-        <li class="outcome-item">
-          <div class="outcome-check">✓</div>
-          <p class="outcome-text"><strong>Avant :</strong> vous subissez le changement. <strong>Après :</strong> vous êtes celui qu'on appelle.</p>
-        </li>
-      </ul>
-    </div>
-
-    <div class="outcomes-visual">
-      <div class="ov-label">Impact mesuré · Promo pilote</div>
-      <div class="ov-bar-group">
-        <div class="ov-bar-item">
-          <div class="ov-bar-top">
-            <span>Gain de productivité perçu</span>
-            <span>+40%</span>
-          </div>
-          <div class="ov-bar-track"><div class="ov-bar-fill" style="width:80%"></div></div>
-        </div>
-        <div class="ov-bar-item">
-          <div class="ov-bar-top">
-            <span>Recommanderaient Déclic AI</span>
-            <span>92%</span>
-          </div>
-          <div class="ov-bar-track"><div class="ov-bar-fill" style="width:92%"></div></div>
-        </div>
-        <div class="ov-bar-item">
-          <div class="ov-bar-top">
-            <span>Ont obtenu un nouveau rôle / mission</span>
-            <span>68%</span>
-          </div>
-          <div class="ov-bar-track"><div class="ov-bar-fill" style="width:68%"></div></div>
-        </div>
-        <div class="ov-bar-item">
-          <div class="ov-bar-top">
-            <span>Se sentent à l'aise avec l'IA</span>
-            <span>97%</span>
-          </div>
-          <div class="ov-bar-track"><div class="ov-bar-fill" style="width:97%"></div></div>
-        </div>
-      </div>
-    </div>
+  <div class="section-label" style="margin-bottom:1rem;">Ce que vous saurez faire</div>
+  <h2 style="margin-bottom:0.5rem;">En sortant du bootcamp.</h2>
+  <p style="color:rgba(245,243,239,0.5); font-size:0.95rem; margin-bottom:2rem;">Des compétences opérationnelles, pas des concepts abstraits.</p>
+  <div class="skills-grid">
+    <div class="skill-item"><span class="skill-check">→</span>Formuler des prompts qui produisent des résultats professionnels du premier coup</div>
+    <div class="skill-item"><span class="skill-check">→</span>Créer des assistants IA spécialisés pour vos sujets récurrents</div>
+    <div class="skill-item"><span class="skill-check">→</span>Automatiser le tri, le routage et les réponses de vos emails</div>
+    <div class="skill-item"><span class="skill-check">→</span>Générer des présentations PowerPoint à votre charte en quelques minutes</div>
+    <div class="skill-item"><span class="skill-check">→</span>Automatiser vos analyses et reportings Excel/Sheets</div>
+    <div class="skill-item"><span class="skill-check">→</span>Synthétiser automatiquement vos réunions et les diffuser</div>
+    <div class="skill-item"><span class="skill-check">→</span>Construire des workflows automatiques entre vos outils (Make / n8n / Cowork)</div>
+    <div class="skill-item"><span class="skill-check">→</span>Connecter Claude directement à votre agenda, Drive, Slack et Notion via MCP</div>
+    <div class="skill-item"><span class="skill-check">→</span>Construire un outil interne simple sans écrire de code</div>
+    <div class="skill-item"><span class="skill-check">→</span>Structurer un plan de déploiement IA pour votre équipe</div>
   </div>
 </section>
 </div>
@@ -2128,8 +2177,8 @@
 <!-- CTA -->
 <div id="inscription" class="cta-section">
   <div class="section-label" style="text-align:center">Candidature ouverte</div>
-  <h2>Le monde a changé.<br>Et vous ?</h2>
-  <p>La prochaine session commence bientôt. <strong style="color:var(--white);">20 places au tarif de lancement à 999€.</strong> Dans 5 semaines, vous serez la personne qu'on appelle quand il faut avancer sur l'IA.</p>
+  <h2>Reprenez le contrôle<br>avec Déclic IA.</h2>
+  <p>La prochaine session commence le 13 avril. <strong style="color:var(--white);">20 places au tarif de lancement à 999€.</strong> Dans 5 semaines, vous serez la personne qu'on appelle quand il faut avancer sur l'IA.</p>
 
   <form id="apply-form" class="apply-form">
     <input id="apply-name"  class="apply-input" type="text"  placeholder="Prénom et nom"         required>
@@ -2151,64 +2200,41 @@
     <h2>Les questions<br>qu'on nous pose.</h2>
 
     <details class="faq-item">
-      <summary class="faq-question">Faut-il savoir coder pour suivre Déclic AI ?</summary>
-      <p class="faq-answer">Non, aucune compétence technique n'est requise. Déclic AI est conçu pour les professionnels non-techniques — consultants, managers, analystes, chefs de projet. Vous apprendrez à utiliser des outils IA puissants sans écrire une seule ligne de code.</p>
+      <summary class="faq-question">Est-ce que c'est éligible au CPF ?</summary>
+      <p class="faq-answer">Non. Déclic IA n'est pas éligible au CPF — et c'est volontaire. Les formations CPF entraînent des lourdeurs administratives qui rallongent les délais et diluent la qualité. On préfère vous donner accès rapidement à quelque chose qui fonctionne vraiment.</p>
     </details>
 
     <details class="faq-item">
-      <summary class="faq-question">Combien de temps faut-il consacrer par semaine ?</summary>
-      <p class="faq-answer">Environ 5h par semaine : 3h de session live (le soir ou le week-end) + 2h de travail asynchrone sur des projets pratiques. Le programme est conçu pour être compatible avec un emploi à temps plein.</p>
+      <summary class="faq-question">Faut-il savoir coder ou être un expert technique ?</summary>
+      <p class="faq-answer">Non. Déclic IA est conçu pour des professionnels non-techniques — consultants, managers, analystes, chefs de projet. Vous apprendrez à utiliser des outils IA puissants sans écrire une seule ligne de code. L'objectif est de vous rendre opérationnel, pas de faire de vous un développeur.</p>
     </details>
 
     <details class="faq-item">
-      <summary class="faq-question">Peut-on suivre à distance ?</summary>
-      <p class="faq-answer">Oui. Les sessions ont lieu en présentiel à Paris 11ème, mais peuvent aussi être suivies entièrement à distance. Vous choisissez le format qui vous convient, sans restriction.</p>
+      <summary class="faq-question">Faut-il être entrepreneur ou avoir sa propre entreprise ?</summary>
+      <p class="faq-answer">Non. La majorité de nos participants sont en poste dans des entreprises — cabinets de conseil, banques, scale-ups, grands groupes. Déclic IA est fait pour vous si vous voulez être plus performant dans votre rôle actuel, que vous soyez salarié ou indépendant.</p>
     </details>
 
     <details class="faq-item">
-      <summary class="faq-question">Qu'est-ce que j'apprends concrètement pendant les 5 semaines ?</summary>
-      <p class="faq-answer">S1 : comprendre le paysage IA (LLMs, OpenAI, Anthropic, Mistral). S2 : prompt engineering avancé et outils de productivité. S3 : automatisation avec Make et N8N. S4 : agents IA et workflows autonomes. S5 : construire et présenter un mini-produit IA. Chaque module est ancré dans des cas réels issus du conseil, de la finance et des opérations.</p>
+      <summary class="faq-question">J'utilise déjà ChatGPT tous les jours, est-ce que ce bootcamp m'apportera quelque chose ?</summary>
+      <p class="faq-answer">Très probablement oui. Utiliser ChatGPT pour reformuler un email ou résumer un document, c'est utiliser 5% des capacités de l'IA. Déclic IA vous apprend à automatiser des workflows entiers, connecter des outils entre eux, construire des agents, et systématiser ce que vous faites — pas juste améliorer une tâche à la fois.</p>
     </details>
 
     <details class="faq-item">
-      <summary class="faq-question">Qui sont les formateurs ?</summary>
-      <p class="faq-answer">Vos formateurs principaux viennent de Partech (venture capital IA), Mistral AI (ingénierie LLM) et Neko Health (product IA). Des intervenants issus de Qonto, Hugging Face, Station F, H Company, BlaBlaCar, Alan, Doctrine et Contentsquare complètent le programme.</p>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-question">Combien coûte le bootcamp ?</summary>
-      <p class="faq-answer">Le tarif de lancement est de 999€ pour les 20 premières inscriptions (prix normal : 2 000€). Pour les entreprises souhaitant former plusieurs collaborateurs, un tarif sur devis est disponible à partir de 5 participants.</p>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-question">Est-ce que je reçois un certificat ?</summary>
-      <p class="faq-answer">Oui, vous recevez un Certificat Déclic AI à la fin du programme. Vous repartez aussi avec un portfolio de 5 projets IA concrets à montrer à votre employeur ou à vos clients, et un accès à vie aux mises à jour du programme.</p>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-question">Déclic AI propose-t-il des formations en entreprise ?</summary>
-      <p class="faq-answer">Oui. Pour les équipes de 5 personnes ou plus, nous proposons des sessions dédiées avec un programme sur-mesure adapté à votre secteur, des formateurs dédiés, des cas pratiques issus de votre entreprise, et un rapport d'impact post-formation. Contactez-nous pour un devis.</p>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-question">Comment candidater ?</summary>
-      <p class="faq-answer">Remplissez le formulaire de candidature en bas de cette page (prénom, email, poste actuel). L'équipe Déclic AI revient vers vous sous 48h pour confirmer votre place. Les places sont limitées à 20 par session.</p>
+      <summary class="faq-question">Je ne suis pas très à l'aise avec la tech ni avec l'anglais — est-ce que ça pose problème ?</summary>
+      <p class="faq-answer">Non. Le programme est entièrement en français. Et la "technicité" requise se limite à savoir utiliser un ordinateur — pas besoin de notions de programmation. Nos meilleurs participants sont souvent ceux qui n'ont aucun bagage tech mais une vraie motivation à changer leurs méthodes de travail.</p>
     </details>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-left">
-    <a href="#" class="logo" style="font-size:1.2rem">Déclic<span>AI</span></a>
+<footer style="flex-direction:column;align-items:center;text-align:center;padding:4rem 2rem 3rem;gap:2rem;">
+  <blockquote class="footer-quote-text" style="max-width:640px;margin:0;font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:300;color:rgba(245,243,239,0.75);line-height:1.55;font-style:italic;">"I choose a lazy person to do a hard job. Because a lazy person will find an easy way to do it."</blockquote>
+  <p class="footer-quote-attr" style="font-size:0.82rem;color:rgba(245,243,239,0.35);letter-spacing:0.08em;text-transform:uppercase;margin:0;">— Bill Gates</p>
+  <a href="#inscription" class="btn-primary" style="margin-top:0.5rem;">Reprenez le contrôle avec Déclic IA.</a>
+  <div class="footer-left" style="flex-direction:column;align-items:center;gap:0.4rem;">
+    <a href="#" class="logo" style="font-size:1.2rem">Déclic<span>IA</span></a>
     <span class="footer-tagline">Le bootcamp IA pour les pros non-techniques · Paris</span>
   </div>
-  <ul class="footer-links">
-    <li><a href="#">Programme</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Mentions légales</a></li>
-  </ul>
 </footer>
 
 <script>
@@ -2303,6 +2329,29 @@
     }
     tick();
     setInterval(tick, 1000);
+  })();
+</script>
+
+<script>
+  (function() {
+    const words1 = ['mails', 'slides', 'excels'];
+    const words2 = ['outreach', 'production', 'analyse'];
+    let i = 0;
+    function rotate() {
+      const w1 = document.getElementById('rotate-word-1');
+      const w2 = document.getElementById('rotate-word-2');
+      if (!w1 || !w2) return;
+      w1.classList.add('fade-out');
+      w2.classList.add('fade-out');
+      setTimeout(function() {
+        i = (i + 1) % words1.length;
+        w1.textContent = words1[i];
+        w2.textContent = words2[i];
+        w1.classList.remove('fade-out');
+        w2.classList.remove('fade-out');
+      }, 270);
+    }
+    setInterval(rotate, 2400);
   })();
 </script>
 
