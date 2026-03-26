@@ -1981,7 +1981,14 @@ a  { text-decoration: none; color: inherit; }
         }
       });
     }, { threshold: 0.12 });
-    document.querySelectorAll('.rv-clip, .rv-up, .rv-slide').forEach(el => obs.observe(el));
+    document.querySelectorAll('.rv-clip, .rv-up, .rv-slide').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.98) {
+        el.classList.add('on'); /* already in viewport — show immediately */
+      } else {
+        obs.observe(el);
+      }
+    });
 
     /* skill bars */
     const barObs = new IntersectionObserver((entries) => {
