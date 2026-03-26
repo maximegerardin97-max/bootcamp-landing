@@ -1044,7 +1044,7 @@
   /* FAQ */
   .faq-section {
     max-width: 760px;
-    margin: 0 auto;
+    margin: 0;
     padding: 5rem 4rem;
   }
   .faq-section .section-label { margin-bottom: 1.2rem; }
@@ -1647,7 +1647,7 @@
   .rotating-word.fade-out { opacity:0; }
 
   /* PROBLEM SECTION */
-  .problem-section { max-width:760px; margin:0 auto; }
+  .problem-section { max-width:760px; margin:0; }
   .problem-stat { font-size:clamp(3rem,6vw,5rem); font-weight:300; color:var(--white); letter-spacing:-0.03em; line-height:1; margin:2rem 0 0.5rem; }
   .problem-stat span { color:var(--accent); }
   .problem-body { color:rgba(245,243,239,0.65); font-size:1rem; line-height:1.85; margin-top:1.5rem; }
@@ -1674,9 +1674,10 @@
   /* TEAM LOGOS ROW */
   .team-logos { display:flex; gap:0.5rem; margin-bottom:1.2rem; flex-wrap:wrap; }
   .team-logo-badge { display:inline-flex; align-items:center; gap:0.35rem; padding:0.25rem 0.6rem; background:rgba(245,243,239,0.04); border:1px solid rgba(245,243,239,0.1); border-radius:3px; font-size:0.72rem; font-weight:500; color:rgba(245,243,239,0.55); letter-spacing:0.02em; }
+  .team-logo-badge img { width:14px; height:14px; object-fit:contain; border-radius:2px; flex-shrink:0; }
 
   /* SECTION MANIFESTO */
-  .manifesto-section { max-width:800px; margin:0 auto; }
+  .manifesto-section { max-width:800px; margin:0; }
   .manifesto-body { color:rgba(245,243,239,0.65); font-size:1rem; line-height:1.9; }
   .manifesto-body p { margin-bottom:1.3rem; }
   .manifesto-body strong { color:var(--white); }
@@ -1975,9 +1976,9 @@
   <div class="built-by-grid">
     <div class="builder-card">
       <div class="team-logos">
-        <span class="team-logo-badge">Partech</span>
-        <span class="team-logo-badge">PJT Partners</span>
-        <span class="team-logo-badge">HEC Paris</span>
+        <span class="team-logo-badge"><img src="https://www.google.com/s2/favicons?domain=partechpartners.com&sz=64" alt="">Partech</span>
+        <span class="team-logo-badge"><img src="https://www.google.com/s2/favicons?domain=pjtpartners.com&sz=64" alt="">PJT Partners</span>
+        <span class="team-logo-badge"><img src="https://www.google.com/s2/favicons?domain=hec.edu&sz=64" alt="">HEC Paris</span>
       </div>
       <div class="builder-company">Louis Dessal</div>
       <div class="builder-role">Investisseur · Venture Capital</div>
@@ -1985,18 +1986,19 @@
     </div>
     <div class="builder-card">
       <div class="team-logos">
-        <span class="team-logo-badge">Mistral AI</span>
-        <span class="team-logo-badge">HEC Paris</span>
+        <span class="team-logo-badge"><img src="https://www.google.com/s2/favicons?domain=hec.edu&sz=64" alt="">HEC Paris</span>
+        <span class="team-logo-badge"><img src="https://www.google.com/s2/favicons?domain=polytechnique.edu&sz=64" alt="">École Polytechnique</span>
+        <span class="team-logo-badge"><img src="https://cdn.simpleicons.org/mistralai/ffffff" alt="" style="border-radius:0;">Mistral AI</span>
       </div>
-      <div class="builder-company">Valentin</div>
+      <div class="builder-company">Valentin Flageat</div>
       <div class="builder-role">ML Engineer · LLMs</div>
       <p class="builder-desc">ML Engineer au cœur de la machine. Valentin conçoit et entraîne les modèles d'IA de demain. "Je passe mes journées à entraîner les modèles qui font les gros titres. Mais le vrai défi aujourd'hui, ce n'est plus seulement de créer l'IA la plus puissante, c'est de vous apprendre à vous en servir pour de vrai au quotidien."</p>
     </div>
     <div class="builder-card">
       <div class="team-logos">
-        <span class="team-logo-badge">Amo</span>
-        <span class="team-logo-badge">Neko Health</span>
-        <span class="team-logo-badge">HEC Paris</span>
+        <span class="team-logo-badge"><img src="https://www.google.com/s2/favicons?domain=hec.edu&sz=64" alt="">HEC Paris</span>
+        <span class="team-logo-badge"><img src="https://www.google.com/s2/favicons?domain=amo.co&sz=64" alt="">Amo</span>
+        <span class="team-logo-badge"><img src="https://www.google.com/s2/favicons?domain=neko.health&sz=64" alt="">Neko Health</span>
       </div>
       <div class="builder-company">Maxime Gerardin</div>
       <div class="builder-role">Product Manager · IA</div>
