@@ -266,7 +266,8 @@ a  { text-decoration: none; color: inherit; }
   position: relative;
   z-index: 1;
   background: var(--cream);
-  overflow: hidden; /* contain parallax transforms */
+  /* No overflow:hidden — sections below have z-index:1 + explicit bg,
+     so any parallax bleed from hero is painted over by them */
 }
 .hero-content { position: relative; }
 
