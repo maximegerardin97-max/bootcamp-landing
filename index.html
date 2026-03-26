@@ -495,8 +495,9 @@ a  { text-decoration: none; color: inherit; }
   height: 100vh;
   overflow: hidden;
   display: flex;
-  align-items: flex-start;
-  padding-top: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: .75rem;
 }
 .testi-scroll-track {
   display: flex;
@@ -563,7 +564,7 @@ a  { text-decoration: none; color: inherit; }
 
 /* Company logos below testimonials */
 .logos-row {
-  padding: .35rem var(--pad);
+  padding: .6rem var(--pad);
   border-top: 1px solid var(--border);
   background: var(--cream);
   position: relative;
@@ -1321,16 +1322,17 @@ a  { text-decoration: none; color: inherit; }
      TESTIMONIALS — horizontal scroll on desktop
      ============================================================ -->
 <div class="testi-outer">
-  <div class="testi-header wrap">
-    <div>
-      <div class="eyebrow rv-up">Ils ont eu le Déclic</div>
-      <h2 class="rv-clip">Ce qu'ils en disent.</h2>
-    </div>
-    <div class="testi-drag-hint">← Swipe →</div>
-  </div>
-
   <div class="testi-scroll-wrapper" id="testi-scroll-wrapper">
     <div class="testi-scroll-sticky" id="testi-scroll-sticky">
+
+      <div class="testi-header wrap">
+        <div>
+          <div class="eyebrow rv-up">Ils ont eu le Déclic</div>
+          <h2 class="rv-clip">Ce qu'ils en disent.</h2>
+        </div>
+        <div class="testi-drag-hint">← Swipe →</div>
+      </div>
+
       <div class="testi-scroll-track" id="testi-scroll-track">
 
         <div class="testi-card rv-slide">
@@ -1384,24 +1386,25 @@ a  { text-decoration: none; color: inherit; }
         </div>
 
       </div>
-    </div>
-  </div>
 
-  <!-- Company logos row -->
-  <div class="logos-row">
-    <svg viewBox="0 0 40 20" height="16" aria-label="EY"><text x="0" y="16" font-family="'Switzer','Helvetica Neue',sans-serif" font-size="18" font-weight="700" fill="#1C1916" letter-spacing="1">EY</text></svg>
-    <span class="logos-sep"></span>
-    <svg viewBox="0 0 52 20" height="16" aria-label="BCG"><text x="0" y="15" font-family="'Switzer','Helvetica Neue',sans-serif" font-size="16" font-weight="700" fill="#1C1916" letter-spacing="1">BCG</text></svg>
-    <span class="logos-sep"></span>
-    <img src="https://cdn.simpleicons.org/revolut/1C1916" class="logo-img" alt="Revolut" style="height:17px;">
-    <span class="logos-sep"></span>
-    <span class="logo-word">Onepoint</span>
-    <span class="logos-sep"></span>
-    <img src="https://cdn.simpleicons.org/morningstar/1C1916" class="logo-img" alt="Morningstar" style="height:17px;" onerror="this.outerHTML='<span class=\'logo-word\'>Morningstar</span>'">
-    <span class="logos-sep"></span>
-    <span class="logo-word">Tönnies</span>
-    <span class="logos-sep"></span>
-    <span class="logo-word">Balasany</span>
+      <!-- Company logos row — inside sticky so it sits right below cards -->
+      <div class="logos-row">
+        <svg viewBox="0 0 40 20" height="16" aria-label="EY"><text x="0" y="16" font-family="'Switzer','Helvetica Neue',sans-serif" font-size="18" font-weight="700" fill="#1C1916" letter-spacing="1">EY</text></svg>
+        <span class="logos-sep"></span>
+        <svg viewBox="0 0 52 20" height="16" aria-label="BCG"><text x="0" y="15" font-family="'Switzer','Helvetica Neue',sans-serif" font-size="16" font-weight="700" fill="#1C1916" letter-spacing="1">BCG</text></svg>
+        <span class="logos-sep"></span>
+        <img src="https://cdn.simpleicons.org/revolut/1C1916" class="logo-img" alt="Revolut" style="height:17px;">
+        <span class="logos-sep"></span>
+        <span class="logo-word">Onepoint</span>
+        <span class="logos-sep"></span>
+        <img src="https://cdn.simpleicons.org/morningstar/1C1916" class="logo-img" alt="Morningstar" style="height:17px;" onerror="this.outerHTML='<span class=\'logo-word\'>Morningstar</span>'">
+        <span class="logos-sep"></span>
+        <span class="logo-word">Tönnies</span>
+        <span class="logos-sep"></span>
+        <span class="logo-word">Balasany</span>
+      </div>
+
+    </div>
   </div>
 </div>
 
