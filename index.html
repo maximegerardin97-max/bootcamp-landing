@@ -149,7 +149,14 @@ a  { text-decoration: none; color: inherit; }
   margin: 0 auto;
   padding: 0 var(--pad);
 }
-.sec { padding: 140px 0; position: relative; }
+/* Every section gets an explicit background + stacking context
+   so parallax/transformed elements in one section never bleed through */
+.sec {
+  padding: 140px 0;
+  position: relative;
+  z-index: 1;
+  background: var(--cream);
+}
 
 /* DARK SECTION */
 .sec-dark {
@@ -257,6 +264,9 @@ a  { text-decoration: none; color: inherit; }
   padding: 9rem var(--pad) 7rem;
   border-bottom: 1px solid var(--border);
   position: relative;
+  z-index: 1;
+  background: var(--cream);
+  overflow: hidden; /* contain parallax transforms */
 }
 .hero-content { position: relative; }
 
@@ -359,6 +369,9 @@ a  { text-decoration: none; color: inherit; }
 .sp-strip {
   padding: 1.6rem var(--pad);
   border-bottom: 1px solid var(--border);
+  background: var(--cream);
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -451,6 +464,8 @@ a  { text-decoration: none; color: inherit; }
 .testi-outer {
   border-top: 1px solid var(--border);
   position: relative;
+  z-index: 1;
+  background: var(--cream);
 }
 .testi-header {
   padding: 80px var(--pad) 4rem;
@@ -547,6 +562,9 @@ a  { text-decoration: none; color: inherit; }
 .logos-row {
   padding: 2.5rem var(--pad);
   border-top: 1px solid var(--border);
+  background: var(--cream);
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -887,6 +905,7 @@ a  { text-decoration: none; color: inherit; }
   padding: 140px var(--pad);
   text-align: center;
   position: relative;
+  z-index: 1;
 }
 .cta-eyebrow {
   font-family: var(--mono);
@@ -1053,6 +1072,8 @@ a  { text-decoration: none; color: inherit; }
   background: var(--dark);
   padding: 6rem var(--pad) 3.5rem;
   border-top: 1px solid rgba(244,239,230,.06);
+  position: relative;
+  z-index: 1;
 }
 .footer-quote-text {
   font-family: var(--serif);
@@ -1898,15 +1919,26 @@ a  { text-decoration: none; color: inherit; }
   }
 
   /* ── HERO PARALLAX ── */
+  /* NOTE: #hero has overflow:hidden so transforms are visually clipped to the
+     hero bounds — no bleed into downstream sections. */
+  const heroEl       = document.getElementById('hero');
   const heroHeadline = document.querySelector('.hero-headline');
   const heroDesc     = document.querySelector('.hero-desc');
   const heroAside    = document.querySelector('.hero-aside');
   function updateParallax() {
     if (isMobile() || prefersReduced) return;
     const y = window.scrollY;
-    if (heroHeadline) heroHeadline.style.transform = `translateY(${y * 0.35}px)`;
-    if (heroDesc)     heroDesc.style.transform     = `translateY(${y * 0.55}px)`;
-    if (heroAside)    heroAside.style.transform    = `translateY(${y * 0.2}px)`;
+    const heroH = heroEl ? heroEl.offsetHeight : 0;
+    /* Only apply while hero is still visible; reset once past it */
+    if (y > heroH) {
+      if (heroHeadline) heroHeadline.style.transform = '';
+      if (heroDesc)     heroDesc.style.transform     = '';
+      if (heroAside)    heroAside.style.transform    = '';
+      return;
+    }
+    if (heroHeadline) heroHeadline.style.transform = `translateY(${y * 0.25}px)`;
+    if (heroDesc)     heroDesc.style.transform     = `translateY(${y * 0.4}px)`;
+    if (heroAside)    heroAside.style.transform    = `translateY(${y * 0.15}px)`;
   }
 
   /* ── EYEBROW DRIFT ── */
