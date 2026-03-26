@@ -954,18 +954,26 @@
     gap: 1.8rem 3.5rem;
   }
   .company-logo-img {
-    height: 32px;
-    width: 32px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.55;
-    transition: opacity 0.2s;
-  }
-  .company-logo-img.wide {
+    height: 28px;
     width: auto;
     max-width: 110px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.5;
+    transition: opacity 0.2s;
   }
   .company-logo-img:hover { opacity: 0.9; }
+  /* text-based wordmark for companies without good CDN logos */
+  .company-wordmark {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,243,239,0.45);
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .company-wordmark:hover { color: rgba(245,243,239,0.85); }
 
   /* BUILDER LOGO */
   .builder-logo-img {
@@ -1648,9 +1656,14 @@
   .problem-closing { margin-top:2.5rem; font-size:1.15rem; color:var(--white); font-weight:500; line-height:1.6; border-left:3px solid var(--accent); padding-left:1.5rem; }
 
   /* SOCIAL PROOF STRIP */
-  .sp-strip { border-top:1px solid rgba(245,243,239,0.07); border-bottom:1px solid rgba(245,243,239,0.07); background:rgba(245,243,239,0.015); padding:2rem 4rem; position:relative; z-index:1; }
-  .sp-grid { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:2rem 3.5rem; }
-  .sp-item { display:flex; align-items:center; gap:0.7rem; opacity:0.6; transition:opacity 0.2s; }
+  .sp-strip { border-top:1px solid rgba(245,243,239,0.07); border-bottom:1px solid rgba(245,243,239,0.07); background:rgba(245,243,239,0.015); padding:1.4rem 0; position:relative; z-index:1; overflow:hidden; }
+  .sp-strip::before, .sp-strip::after { content:''; position:absolute; top:0; bottom:0; width:6rem; z-index:2; pointer-events:none; }
+  .sp-strip::before { left:0; background:linear-gradient(to right, #0a0a0a, transparent); }
+  .sp-strip::after { right:0; background:linear-gradient(to left, #0a0a0a, transparent); }
+  .sp-track { display:flex; align-items:center; gap:3rem; white-space:nowrap; width:max-content; animation:sp-marquee 28s linear infinite; }
+  @keyframes sp-marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  .sp-track:hover { animation-play-state:paused; }
+  .sp-item { display:inline-flex; align-items:center; gap:0.7rem; opacity:0.65; transition:opacity 0.2s; flex-shrink:0; }
   .sp-item:hover { opacity:1; }
   .sp-face { width:36px; height:36px; border-radius:50%; object-fit:cover; border:1px solid rgba(245,243,239,0.15); flex-shrink:0; }
   .sp-info { display:flex; flex-direction:column; gap:0.1rem; }
@@ -1771,16 +1784,16 @@
         <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="" class="face-avatar">
       </div>
       <span class="stars">★★★★★</span>
-      <span class="stars-label">5/5 · Nos anciens élèves</span>
+      <span class="stars-label">5/5 · Promo pilote</span>
     </div>
-    <h1 class="fade-up delay-1">Vous sentez que vous<br>pourriez faire plus.<br><span style="color:var(--accent);">Reprenez le contrôle<br>avec l'IA.</span></h1>
+    <h1 class="fade-up delay-1">Vous sentez que vous pourriez faire plus.<br><span style="color:var(--accent);">Reprenez le contrôle avec l'IA.</span></h1>
     <p class="hero-desc fade-up delay-2">Vous vous sentez submergés et ne savez pas par où commencer. Faites de l'IA votre co-pilote.</p>
-    <div class="hero-actions fade-up delay-3">
-      <a href="#inscription" class="btn-primary">Construisez enfin le projet auquel vous pensez depuis des années →</a>
-    </div>
-    <div class="rotating-text fade-up delay-4">
+    <div class="rotating-text fade-up delay-3">
       <span class="rotate-line">Ne perdez plus de temps sur vos&nbsp;<span class="rotating-word" id="rotate-word-1">mails</span>.</span>
       <span class="rotate-line">Automatisez votre&nbsp;<span class="rotating-word" id="rotate-word-2">outreach</span>.</span>
+    </div>
+    <div class="hero-actions fade-up delay-4">
+      <a href="#inscription" class="btn-primary">C'est parti !</a>
     </div>
   </div>
 
@@ -1812,41 +1825,48 @@
 
 <!-- SOCIAL PROOF STRIP -->
 <div class="sp-strip">
-  <div class="sp-grid">
+  <div class="sp-track">
+    <!-- set 1 -->
     <div class="sp-item">
       <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Sylvain" class="sp-face">
-      <div class="sp-info">
-        <span class="sp-name">Sylvain · EY Parthenon</span>
-        <span class="sp-stars">★★★★★</span>
-      </div>
+      <div class="sp-info"><span class="sp-name">Sylvain · EY Parthenon</span><span class="sp-stars">★★★★★</span></div>
     </div>
     <div class="sp-item">
       <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Thomas" class="sp-face">
-      <div class="sp-info">
-        <span class="sp-name">Thomas · BCG / Revolut</span>
-        <span class="sp-stars">★★★★★</span>
-      </div>
+      <div class="sp-info"><span class="sp-name">Thomas · BCG / Revolut</span><span class="sp-stars">★★★★★</span></div>
     </div>
     <div class="sp-item">
       <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Eloi" class="sp-face">
-      <div class="sp-info">
-        <span class="sp-name">Eloi · Morningstar</span>
-        <span class="sp-stars">★★★★★</span>
-      </div>
+      <div class="sp-info"><span class="sp-name">Eloi · Morningstar</span><span class="sp-stars">★★★★★</span></div>
     </div>
     <div class="sp-item">
       <img src="https://randomuser.me/api/portraits/men/71.jpg" alt="Julien" class="sp-face">
-      <div class="sp-info">
-        <span class="sp-name">Julien · Tonnies</span>
-        <span class="sp-stars">★★★★★</span>
-      </div>
+      <div class="sp-info"><span class="sp-name">Julien · Tönnies</span><span class="sp-stars">★★★★★</span></div>
     </div>
     <div class="sp-item">
       <img src="https://randomuser.me/api/portraits/men/38.jpg" alt="William" class="sp-face">
-      <div class="sp-info">
-        <span class="sp-name">William · Balasany</span>
-        <span class="sp-stars">★★★★★</span>
-      </div>
+      <div class="sp-info"><span class="sp-name">William · Balasany</span><span class="sp-stars">★★★★★</span></div>
+    </div>
+    <!-- set 2 — duplicate for seamless loop -->
+    <div class="sp-item">
+      <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Sylvain" class="sp-face">
+      <div class="sp-info"><span class="sp-name">Sylvain · EY Parthenon</span><span class="sp-stars">★★★★★</span></div>
+    </div>
+    <div class="sp-item">
+      <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Thomas" class="sp-face">
+      <div class="sp-info"><span class="sp-name">Thomas · BCG / Revolut</span><span class="sp-stars">★★★★★</span></div>
+    </div>
+    <div class="sp-item">
+      <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Eloi" class="sp-face">
+      <div class="sp-info"><span class="sp-name">Eloi · Morningstar</span><span class="sp-stars">★★★★★</span></div>
+    </div>
+    <div class="sp-item">
+      <img src="https://randomuser.me/api/portraits/men/71.jpg" alt="Julien" class="sp-face">
+      <div class="sp-info"><span class="sp-name">Julien · Tönnies</span><span class="sp-stars">★★★★★</span></div>
+    </div>
+    <div class="sp-item">
+      <img src="https://randomuser.me/api/portraits/men/38.jpg" alt="William" class="sp-face">
+      <div class="sp-info"><span class="sp-name">William · Balasany</span><span class="sp-stars">★★★★★</span></div>
     </div>
   </div>
 </div>
@@ -1879,13 +1899,30 @@
   <!-- Company logos banner -->
   <div class="logos-section" style="border:none; padding:1.5rem 0 3rem; margin:0;">
     <div class="logos-grid">
-      <img src="https://www.google.com/s2/favicons?domain=ey.com&sz=128" alt="EY Parthenon" class="company-logo-img">
-      <img src="https://www.google.com/s2/favicons?domain=bcg.com&sz=128" alt="BCG" class="company-logo-img">
-      <img src="https://www.google.com/s2/favicons?domain=revolut.com&sz=128" alt="Revolut" class="company-logo-img">
-      <img src="https://www.google.com/s2/favicons?domain=onepoint.fr&sz=128" alt="OnePoint" class="company-logo-img">
-      <img src="https://www.google.com/s2/favicons?domain=morningstar.com&sz=128" alt="Morningstar" class="company-logo-img">
-      <img src="https://www.google.com/s2/favicons?domain=toennies.de&sz=128" alt="Tonnies" class="company-logo-img">
-      <img src="https://www.google.com/s2/favicons?domain=balasany.com&sz=128" alt="Balasany" class="company-logo-img">
+      <!-- EY: inline SVG wordmark -->
+      <svg viewBox="0 0 52 24" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="EY" style="opacity:0.5;transition:opacity .2s;" onmouseenter="this.style.opacity='.9'" onmouseleave="this.style.opacity='.5'">
+        <text x="0" y="19" font-family="'DM Sans',sans-serif" font-size="22" font-weight="700" fill="white" letter-spacing="2">EY</text>
+      </svg>
+      <!-- BCG: inline SVG wordmark -->
+      <svg viewBox="0 0 64 24" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BCG" style="opacity:0.5;transition:opacity .2s;" onmouseenter="this.style.opacity='.9'" onmouseleave="this.style.opacity='.5'">
+        <text x="0" y="19" font-family="'DM Sans',sans-serif" font-size="20" font-weight="700" fill="white" letter-spacing="1">BCG</text>
+      </svg>
+      <!-- Revolut: SimpleIcons SVG -->
+      <img src="https://cdn.simpleicons.org/revolut/ffffff" alt="Revolut" class="company-logo-img" style="height:22px;">
+      <!-- OnePoint: wordmark -->
+      <svg viewBox="0 0 110 24" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="onepoint" style="opacity:0.5;transition:opacity .2s;" onmouseenter="this.style.opacity='.9'" onmouseleave="this.style.opacity='.5'">
+        <text x="0" y="18" font-family="'DM Sans',sans-serif" font-size="16" font-weight="600" fill="white" letter-spacing="2">ONEPOINT</text>
+      </svg>
+      <!-- Morningstar: SimpleIcons SVG -->
+      <img src="https://cdn.simpleicons.org/morningstar/ffffff" alt="Morningstar" class="company-logo-img" style="height:22px;" onerror="this.outerHTML='<span class=\'company-wordmark\'>Morningstar</span>'">
+      <!-- Tönnies: wordmark -->
+      <svg viewBox="0 0 100 24" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Tönnies" style="opacity:0.5;transition:opacity .2s;" onmouseenter="this.style.opacity='.9'" onmouseleave="this.style.opacity='.5'">
+        <text x="0" y="18" font-family="'DM Sans',sans-serif" font-size="16" font-weight="600" fill="white" letter-spacing="1.5">TÖNNIES</text>
+      </svg>
+      <!-- Balasany: wordmark -->
+      <svg viewBox="0 0 115 24" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Balasany" style="opacity:0.5;transition:opacity .2s;" onmouseenter="this.style.opacity='.9'" onmouseleave="this.style.opacity='.5'">
+        <text x="0" y="18" font-family="'DM Sans',sans-serif" font-size="16" font-weight="600" fill="white" letter-spacing="1.5">BALASANY</text>
+      </svg>
     </div>
   </div>
 
