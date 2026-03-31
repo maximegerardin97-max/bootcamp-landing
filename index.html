@@ -294,6 +294,67 @@ a  { text-decoration: none; color: inherit; }
   letter-spacing: .1em;
 }
 
+/* Hero promo pilote strip */
+.hero-promo-list {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: .55rem;
+}
+.hero-promo-item {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+.hero-promo-photo {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--cream);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px var(--border);
+}
+.hero-promo-details {
+  display: flex;
+  flex-direction: column;
+  gap: .05rem;
+}
+.hero-promo-stars {
+  color: var(--accent);
+  font-size: .62rem;
+  line-height: 1;
+}
+.hero-promo-name {
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.15;
+}
+.hero-promo-role {
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.2;
+}
+.hero-promo-sep {
+  width: 1px;
+  height: 34px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.hero-promo-label {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-top: .15rem;
+}
+
 /* headline — contained within hero grid column */
 .hero-headline {
   margin-right: 0;
@@ -549,7 +610,15 @@ a  { text-decoration: none; color: inherit; }
   position: relative;
   z-index: 1;
 }
-.testi-author { position: relative; z-index: 1; }
+.testi-author { position: relative; z-index: 1; display: flex; align-items: center; gap: .75rem; }
+.testi-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--border);
+  flex-shrink: 0;
+}
+.testi-author-text { display: flex; flex-direction: column; }
 .testi-name { font-size: .82rem; font-weight: 600; color: var(--ink); display: block; }
 .testi-role {
   font-family: var(--mono);
@@ -629,10 +698,10 @@ a  { text-decoration: none; color: inherit; }
 .team-card:hover { transform: translateY(-6px) rotate(.5deg); }
 
 .team-avatar {
-  width: 60px; height: 60px;
+  width: 72px; height: 72px;
   border-radius: 50%;
   background: var(--card);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   margin-bottom: 1.4rem;
   display: flex;
   align-items: center;
@@ -643,6 +712,12 @@ a  { text-decoration: none; color: inherit; }
   color: var(--accent);
   font-weight: 300;
   flex-shrink: 0;
+  overflow: hidden;
+}
+.team-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .team-badges {
   display: flex;
@@ -1213,15 +1288,35 @@ a  { text-decoration: none; color: inherit; }
 <section id="hero">
   <div class="hero-content">
     <div class="hero-rating rv-up">
-      <div class="hero-faces">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg"   alt="" class="face-avatar">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" class="face-avatar">
-        <img src="https://randomuser.me/api/portraits/men/51.jpg"   alt="" class="face-avatar">
-        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="" class="face-avatar">
-        <img src="https://randomuser.me/api/portraits/men/14.jpg"   alt="" class="face-avatar">
+      <div class="hero-promo-list">
+        <div class="hero-promo-item">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" class="hero-promo-photo" alt="Sylvain">
+          <div class="hero-promo-details">
+            <span class="hero-promo-stars">★★★★★</span>
+            <span class="hero-promo-name">Sylvain</span>
+            <span class="hero-promo-role">Senior Consultant · EY</span>
+          </div>
+        </div>
+        <div class="hero-promo-sep"></div>
+        <div class="hero-promo-item">
+          <img src="https://randomuser.me/api/portraits/men/62.jpg" class="hero-promo-photo" alt="Thomas">
+          <div class="hero-promo-details">
+            <span class="hero-promo-stars">★★★★★</span>
+            <span class="hero-promo-name">Thomas</span>
+            <span class="hero-promo-role">Associate · BCG</span>
+          </div>
+        </div>
+        <div class="hero-promo-sep"></div>
+        <div class="hero-promo-item">
+          <img src="https://randomuser.me/api/portraits/men/28.jpg" class="hero-promo-photo" alt="Eloi">
+          <div class="hero-promo-details">
+            <span class="hero-promo-stars">★★★★★</span>
+            <span class="hero-promo-name">Eloi</span>
+            <span class="hero-promo-role">Analyste · Morningstar</span>
+          </div>
+        </div>
       </div>
-      <span class="stars">★★★★★</span>
-      <span class="stars-label">5/5 · Promo pilote</span>
+      <span class="hero-promo-label">Promo pilote · 5/5</span>
     </div>
 
     <h1 class="hero-headline rv-up d1">
@@ -1267,31 +1362,6 @@ a  { text-decoration: none; color: inherit; }
   </div>
 </section>
 
-<!-- ============================================================
-     SOCIAL PROOF STRIP — static watermark
-     ============================================================ -->
-<div class="sp-strip">
-  <span class="sp-watermark">EY Parthenon</span>
-  <span class="sp-dot"></span>
-  <span class="sp-watermark">BCG</span>
-  <span class="sp-dot"></span>
-  <span class="sp-watermark">Revolut</span>
-  <span class="sp-dot"></span>
-  <span class="sp-watermark">Morningstar</span>
-  <span class="sp-dot"></span>
-  <span class="sp-watermark">Tönnies</span>
-  <span class="sp-dot"></span>
-  <span class="sp-watermark">Balasany</span>
-  <span class="sp-dot"></span>
-  <div class="sp-faces-row">
-    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="sp-face-img" alt="Sylvain">
-    <img src="https://randomuser.me/api/portraits/men/62.jpg" class="sp-face-img" alt="Thomas">
-    <img src="https://randomuser.me/api/portraits/men/28.jpg" class="sp-face-img" alt="Eloi">
-    <img src="https://randomuser.me/api/portraits/men/71.jpg" class="sp-face-img" alt="Julien">
-    <img src="https://randomuser.me/api/portraits/men/38.jpg" class="sp-face-img" alt="William">
-  </div>
-  <span class="sp-info-text">5/5 · Promo pilote</span>
-</div>
 
 <!-- ============================================================
      PROBLEM STATEMENT
@@ -1340,8 +1410,11 @@ a  { text-decoration: none; color: inherit; }
           <span class="testi-stars">★★★★★</span>
           <p class="testi-quote">« C'est simple, entre les analyses de marché, les analyses quanti, le traitement des emails, la prise de notes, l'automatisation de la création de slides, j'ai économisé des dizaines d'heures par semaine. »</p>
           <div class="testi-author">
-            <span class="testi-name">Sylvain</span>
-            <span class="testi-role">EY Parthenon</span>
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" class="testi-avatar" alt="Sylvain">
+            <div class="testi-author-text">
+              <span class="testi-name">Sylvain</span>
+              <span class="testi-role">EY Parthenon</span>
+            </div>
           </div>
         </div>
 
@@ -1350,8 +1423,11 @@ a  { text-decoration: none; color: inherit; }
           <span class="testi-stars">★★★★★</span>
           <p class="testi-quote">« Je ne sais pas coder, je n'ai jamais su coder, et pourtant j'ai créé une solution qui automatise l'identification et le contact d'experts métiers — ça me prenait des heures, maintenant je fais ça en un clic. »</p>
           <div class="testi-author">
-            <span class="testi-name">Thomas</span>
-            <span class="testi-role">BCG / Revolut</span>
+            <img src="https://randomuser.me/api/portraits/men/62.jpg" class="testi-avatar" alt="Thomas">
+            <div class="testi-author-text">
+              <span class="testi-name">Thomas</span>
+              <span class="testi-role">BCG / Revolut</span>
+            </div>
           </div>
         </div>
 
@@ -1360,8 +1436,11 @@ a  { text-decoration: none; color: inherit; }
           <span class="testi-stars">★★★★★</span>
           <p class="testi-quote">« Il y a eu un avant et un après pour moi. Je pouvais passer des heures pour avoir une première ébauche de mes modèles Excel — maintenant c'est une affaire de minutes. »</p>
           <div class="testi-author">
-            <span class="testi-name">Eloi</span>
-            <span class="testi-role">Morningstar</span>
+            <img src="https://randomuser.me/api/portraits/men/28.jpg" class="testi-avatar" alt="Eloi">
+            <div class="testi-author-text">
+              <span class="testi-name">Eloi</span>
+              <span class="testi-role">Morningstar</span>
+            </div>
           </div>
         </div>
 
@@ -1370,8 +1449,11 @@ a  { text-decoration: none; color: inherit; }
           <span class="testi-stars">★★★★★</span>
           <p class="testi-quote">« Il y avait un problème dans notre supply chain, on avait la donnée mais on ne savait pas où chercher — l'IA a trouvé en 5 minutes. Je n'aurais jamais eu ce réflexe avant. »</p>
           <div class="testi-author">
-            <span class="testi-name">Julien</span>
-            <span class="testi-role">Tönnies</span>
+            <img src="https://randomuser.me/api/portraits/men/71.jpg" class="testi-avatar" alt="Julien">
+            <div class="testi-author-text">
+              <span class="testi-name">Julien</span>
+              <span class="testi-role">Tönnies</span>
+            </div>
           </div>
         </div>
 
@@ -1380,29 +1462,16 @@ a  { text-decoration: none; color: inherit; }
           <span class="testi-stars">★★★★★</span>
           <p class="testi-quote">« La formation la plus concrète que j'ai suivie. Pas de blabla, on sort de là avec des outils opérationnels. »</p>
           <div class="testi-author">
-            <span class="testi-name">William</span>
-            <span class="testi-role">Balasany</span>
+            <img src="https://randomuser.me/api/portraits/men/38.jpg" class="testi-avatar" alt="William">
+            <div class="testi-author-text">
+              <span class="testi-name">William</span>
+              <span class="testi-role">Balasany</span>
+            </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Company logos row — inside sticky so it sits right below cards -->
-      <div class="logos-row">
-        <svg viewBox="0 0 40 20" height="16" aria-label="EY"><text x="0" y="16" font-family="'Switzer','Helvetica Neue',sans-serif" font-size="18" font-weight="700" fill="#1C1916" letter-spacing="1">EY</text></svg>
-        <span class="logos-sep"></span>
-        <svg viewBox="0 0 52 20" height="16" aria-label="BCG"><text x="0" y="15" font-family="'Switzer','Helvetica Neue',sans-serif" font-size="16" font-weight="700" fill="#1C1916" letter-spacing="1">BCG</text></svg>
-        <span class="logos-sep"></span>
-        <img src="https://cdn.simpleicons.org/revolut/1C1916" class="logo-img" alt="Revolut" style="height:17px;">
-        <span class="logos-sep"></span>
-        <span class="logo-word">Onepoint</span>
-        <span class="logos-sep"></span>
-        <img src="https://cdn.simpleicons.org/morningstar/1C1916" class="logo-img" alt="Morningstar" style="height:17px;" onerror="this.outerHTML='<span class=\'logo-word\'>Morningstar</span>'">
-        <span class="logos-sep"></span>
-        <span class="logo-word">Tönnies</span>
-        <span class="logos-sep"></span>
-        <span class="logo-word">Balasany</span>
-      </div>
 
     </div>
   </div>
@@ -1420,7 +1489,7 @@ a  { text-decoration: none; color: inherit; }
 
       <!-- Louis Dessal -->
       <div class="team-card rv-up d1">
-        <div class="team-avatar">L</div>
+        <div class="team-avatar"><img src="https://partech-admin.prod.unomena.io/media/images/Louis_Dessal.format-webp.webp" alt="Louis Dessal"></div>
         <div class="team-badges">
           <span class="team-badge"><img src="https://www.google.com/s2/favicons?domain=partechpartners.com&sz=64" alt="">Partech</span>
           <span class="team-badge"><img src="https://www.google.com/s2/favicons?domain=pjtpartners.com&sz=64" alt="">PJT Partners</span>
@@ -1433,7 +1502,7 @@ a  { text-decoration: none; color: inherit; }
 
       <!-- Valentin Flageat -->
       <div class="team-card rv-up d2">
-        <div class="team-avatar">V</div>
+        <div class="team-avatar" style="font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--accent);">V</div>
         <div class="team-badges">
           <span class="team-badge"><img src="https://www.google.com/s2/favicons?domain=hec.edu&sz=64" alt="">HEC Paris</span>
           <span class="team-badge"><img src="https://www.google.com/s2/favicons?domain=polytechnique.edu&sz=64" alt="">Polytechnique</span>
@@ -1446,7 +1515,7 @@ a  { text-decoration: none; color: inherit; }
 
       <!-- Maxime Gerardin -->
       <div class="team-card rv-up d3">
-        <div class="team-avatar">M</div>
+        <div class="team-avatar"><img src="https://media.licdn.com/dms/image/v2/D4E03AQH4n0UmHV1NNA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1716393910177?e=2147483647&v=beta&t=us2RkLcrbRmlRDM7F7cvBA6EvJGJc57eDJb-QaiJCXs" alt="Maxime Gerardin"></div>
         <div class="team-badges">
           <span class="team-badge"><img src="https://www.google.com/s2/favicons?domain=hec.edu&sz=64" alt="">HEC Paris</span>
           <span class="team-badge"><img src="https://www.google.com/s2/favicons?domain=amo.co&sz=64" alt="">Amo</span>
