@@ -1332,11 +1332,15 @@ a  { text-decoration: none; color: inherit; }
   /* Hero */
   #hero { padding: 5.5rem var(--pad) 3rem; gap: 2rem; }
   .hero-headline { font-size: clamp(1.9rem, 7.5vw, 3rem); line-height: 1.05; }
-  .hero-promo-list { flex-wrap: wrap; gap: .75rem; }
+  /* Stack rating vertically so list + label don't overflow in a single row */
+  .hero-rating { flex-direction: column; align-items: flex-start; gap: .5rem; margin-bottom: 1.75rem; }
+  .hero-promo-list { gap: .9rem; flex-wrap: nowrap; }
   .hero-promo-sep { display: none; }
-  .hero-promo-item:last-child { display: none; } /* show 2 on mobile */
+  .hero-promo-photo { width: 34px; height: 34px; }
+  .hero-promo-name { font-size: .74rem; }
+  .hero-promo-role { font-size: .52rem; }
   .hero-rule { margin: 1.5rem 0; }
-  .hero-aside { display: none; } /* hide aside card on small screens */
+  .hero-aside { display: none; }
 
   /* Problem */
   .problem-stat-num { font-size: clamp(5rem, 20vw, 9rem); }
@@ -1382,7 +1386,8 @@ a  { text-decoration: none; color: inherit; }
 @media (max-width: 480px) {
   :root { --pad: 1rem; }
   .hero-headline { font-size: clamp(1.7rem, 8.5vw, 2.4rem); }
-  .hero-promo-item:nth-child(3) { display: none; }
+  .hero-promo-list { gap: .6rem; }
+  .hero-promo-photo { width: 30px; height: 30px; }
   .acc-trigger { gap: .75rem; }
   .acc-dur { display: none; }  /* hide duration on tiny screens */
   .testi-card { min-width: 270px; max-width: 270px; padding: 1.8rem; }
