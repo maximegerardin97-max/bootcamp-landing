@@ -30,7 +30,7 @@
 :root {
   --cream:   #EEEAE2;
   --ink:     #1A1814;
-  --accent:  #A85E46;
+  --accent:  #C4501E;
   --muted:   #A09890;
   --card:    #E4DDD3;
   --dark:    #141210;
@@ -546,25 +546,35 @@ a  { text-decoration: none; color: inherit; }
   display: none; /* shown on mobile */
 }
 
-/* Horizontal scroll container */
+/* Auto-scrolling marquee testimonials */
 .testi-scroll-wrapper {
-  /* height set by JS for desktop */
+  padding: 42px 0;
+  position: relative;
+  z-index: 1;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+}
+.testi-header {
+  max-width: 1280px;
+  margin: 0 auto 2.5rem;
+  padding: 0 var(--pad);
 }
 .testi-scroll-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: .75rem;
+  /* no sticky, no fixed height */
 }
 .testi-scroll-track {
   display: flex;
   gap: 2rem;
-  padding: 0 var(--pad);
+  padding: .5rem var(--pad);
+  width: max-content;
+  animation: testi-marquee 40s linear infinite;
   will-change: transform;
+}
+.testi-scroll-track:hover { animation-play-state: paused; }
+@keyframes testi-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 .testi-card {
   min-width: 380px;
@@ -1243,10 +1253,8 @@ a  { text-decoration: none; color: inherit; }
   .team-grid { grid-template-columns: 1fr; }
   .outcomes-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
-  .testi-scroll-sticky { height: auto; position: relative; }
-  .testi-scroll-wrapper { height: auto !important; }
-  .testi-scroll-track { flex-direction: column; transform: none !important; padding: 0 var(--pad) 2rem; }
-  .testi-card { min-width: auto; max-width: 100%; }
+  .testi-scroll-track { animation-duration: 60s; }
+  .testi-card { min-width: 300px; max-width: 300px; }
   .testi-card:nth-child(2) { transform: none; }
   .testi-drag-hint { display: block; }
   .cta-headline { font-size: clamp(3rem, 12vw, 6rem); }
@@ -1391,87 +1399,146 @@ a  { text-decoration: none; color: inherit; }
 <!-- ============================================================
      TESTIMONIALS — horizontal scroll on desktop
      ============================================================ -->
-<div class="testi-outer">
-  <div class="testi-scroll-wrapper" id="testi-scroll-wrapper">
-    <div class="testi-scroll-sticky" id="testi-scroll-sticky">
+<!-- TESTIMONIALS: auto-scrolling marquee -->
+<div class="testi-scroll-wrapper">
+  <div class="testi-header">
+    <div class="eyebrow rv-up">Ils ont eu le Déclic</div>
+    <h2 class="rv-clip">Ce qu'ils en disent.</h2>
+  </div>
+  <div class="testi-scroll-sticky">
+    <div class="testi-scroll-track" id="testi-scroll-track">
 
-      <div class="testi-header wrap">
-        <div>
-          <div class="eyebrow rv-up">Ils ont eu le Déclic</div>
-          <h2 class="rv-clip">Ce qu'ils en disent.</h2>
+      <!-- Set 1 -->
+      <div class="testi-card">
+        <span class="testi-company-bg">EY</span>
+        <span class="testi-stars">★★★★★</span>
+        <p class="testi-quote">« C'est simple, entre les analyses de marché, les analyses quanti, le traitement des emails, la prise de notes, l'automatisation de la création de slides, j'ai économisé des dizaines d'heures par semaine. »</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" class="testi-avatar" alt="Sylvain">
+          <div class="testi-author-text">
+            <span class="testi-name">Sylvain</span>
+            <span class="testi-role">EY Parthenon</span>
+          </div>
         </div>
-        <div class="testi-drag-hint">← Swipe →</div>
       </div>
 
-      <div class="testi-scroll-track" id="testi-scroll-track">
-
-        <div class="testi-card rv-slide">
-          <span class="testi-company-bg">EY</span>
-          <span class="testi-stars">★★★★★</span>
-          <p class="testi-quote">« C'est simple, entre les analyses de marché, les analyses quanti, le traitement des emails, la prise de notes, l'automatisation de la création de slides, j'ai économisé des dizaines d'heures par semaine. »</p>
-          <div class="testi-author">
-            <img src="https://randomuser.me/api/portraits/men/45.jpg" class="testi-avatar" alt="Sylvain">
-            <div class="testi-author-text">
-              <span class="testi-name">Sylvain</span>
-              <span class="testi-role">EY Parthenon</span>
-            </div>
+      <div class="testi-card">
+        <span class="testi-company-bg">BCG</span>
+        <span class="testi-stars">★★★★★</span>
+        <p class="testi-quote">« Je ne sais pas coder, je n'ai jamais su coder, et pourtant j'ai créé une solution qui automatise l'identification et le contact d'experts métiers — ça me prenait des heures, maintenant je fais ça en un clic. »</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/men/62.jpg" class="testi-avatar" alt="Thomas">
+          <div class="testi-author-text">
+            <span class="testi-name">Thomas</span>
+            <span class="testi-role">BCG / Revolut</span>
           </div>
         </div>
-
-        <div class="testi-card rv-slide d1">
-          <span class="testi-company-bg">BCG</span>
-          <span class="testi-stars">★★★★★</span>
-          <p class="testi-quote">« Je ne sais pas coder, je n'ai jamais su coder, et pourtant j'ai créé une solution qui automatise l'identification et le contact d'experts métiers — ça me prenait des heures, maintenant je fais ça en un clic. »</p>
-          <div class="testi-author">
-            <img src="https://randomuser.me/api/portraits/men/62.jpg" class="testi-avatar" alt="Thomas">
-            <div class="testi-author-text">
-              <span class="testi-name">Thomas</span>
-              <span class="testi-role">BCG / Revolut</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card rv-slide d2">
-          <span class="testi-company-bg">Morning</span>
-          <span class="testi-stars">★★★★★</span>
-          <p class="testi-quote">« Il y a eu un avant et un après pour moi. Je pouvais passer des heures pour avoir une première ébauche de mes modèles Excel — maintenant c'est une affaire de minutes. »</p>
-          <div class="testi-author">
-            <img src="https://randomuser.me/api/portraits/men/28.jpg" class="testi-avatar" alt="Eloi">
-            <div class="testi-author-text">
-              <span class="testi-name">Eloi</span>
-              <span class="testi-role">Morningstar</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card rv-slide d3">
-          <span class="testi-company-bg">Tönnies</span>
-          <span class="testi-stars">★★★★★</span>
-          <p class="testi-quote">« Il y avait un problème dans notre supply chain, on avait la donnée mais on ne savait pas où chercher — l'IA a trouvé en 5 minutes. Je n'aurais jamais eu ce réflexe avant. »</p>
-          <div class="testi-author">
-            <img src="https://randomuser.me/api/portraits/men/71.jpg" class="testi-avatar" alt="Julien">
-            <div class="testi-author-text">
-              <span class="testi-name">Julien</span>
-              <span class="testi-role">Tönnies</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card rv-slide d4">
-          <span class="testi-company-bg">Bala</span>
-          <span class="testi-stars">★★★★★</span>
-          <p class="testi-quote">« La formation la plus concrète que j'ai suivie. Pas de blabla, on sort de là avec des outils opérationnels. »</p>
-          <div class="testi-author">
-            <img src="https://randomuser.me/api/portraits/men/38.jpg" class="testi-avatar" alt="William">
-            <div class="testi-author-text">
-              <span class="testi-name">William</span>
-              <span class="testi-role">Balasany</span>
-            </div>
-          </div>
-        </div>
-
       </div>
 
+      <div class="testi-card" style="transform:rotate(-1.5deg);">
+        <span class="testi-company-bg">Morning</span>
+        <span class="testi-stars">★★★★★</span>
+        <p class="testi-quote">« Il y a eu un avant et un après pour moi. Je pouvais passer des heures pour avoir une première ébauche de mes modèles Excel — maintenant c'est une affaire de minutes. »</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/men/28.jpg" class="testi-avatar" alt="Eloi">
+          <div class="testi-author-text">
+            <span class="testi-name">Eloi</span>
+            <span class="testi-role">Morningstar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <span class="testi-company-bg">Tönnies</span>
+        <span class="testi-stars">★★★★★</span>
+        <p class="testi-quote">« Il y avait un problème dans notre supply chain, on avait la donnée mais on ne savait pas où chercher — l'IA a trouvé en 5 minutes. Je n'aurais jamais eu ce réflexe avant. »</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/men/71.jpg" class="testi-avatar" alt="Julien">
+          <div class="testi-author-text">
+            <span class="testi-name">Julien</span>
+            <span class="testi-role">Tönnies</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <span class="testi-company-bg">Bala</span>
+        <span class="testi-stars">★★★★★</span>
+        <p class="testi-quote">« La formation la plus concrète que j'ai suivie. Pas de blabla, on sort de là avec des outils opérationnels. »</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/men/38.jpg" class="testi-avatar" alt="William">
+          <div class="testi-author-text">
+            <span class="testi-name">William</span>
+            <span class="testi-role">Balasany</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Set 2 — duplicate for seamless loop -->
+      <div class="testi-card" aria-hidden="true">
+        <span class="testi-company-bg">EY</span>
+        <span class="testi-stars">★★★★★</span>
+        <p class="testi-quote">« C'est simple, entre les analyses de marché, les analyses quanti, le traitement des emails, la prise de notes, l'automatisation de la création de slides, j'ai économisé des dizaines d'heures par semaine. »</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" class="testi-avatar" alt="">
+          <div class="testi-author-text">
+            <span class="testi-name">Sylvain</span>
+            <span class="testi-role">EY Parthenon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card" aria-hidden="true">
+        <span class="testi-company-bg">BCG</span>
+        <span class="testi-stars">★★★★★</span>
+        <p class="testi-quote">« Je ne sais pas coder, je n'ai jamais su coder, et pourtant j'ai créé une solution qui automatise l'identification et le contact d'experts métiers — ça me prenait des heures, maintenant je fais ça en un clic. »</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/men/62.jpg" class="testi-avatar" alt="">
+          <div class="testi-author-text">
+            <span class="testi-name">Thomas</span>
+            <span class="testi-role">BCG / Revolut</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card" aria-hidden="true" style="transform:rotate(-1.5deg);">
+        <span class="testi-company-bg">Morning</span>
+        <span class="testi-stars">★★★★★</span>
+        <p class="testi-quote">« Il y a eu un avant et un après pour moi. Je pouvais passer des heures pour avoir une première ébauche de mes modèles Excel — maintenant c'est une affaire de minutes. »</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/men/28.jpg" class="testi-avatar" alt="">
+          <div class="testi-author-text">
+            <span class="testi-name">Eloi</span>
+            <span class="testi-role">Morningstar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card" aria-hidden="true">
+        <span class="testi-company-bg">Tönnies</span>
+        <span class="testi-stars">★★★★★</span>
+        <p class="testi-quote">« Il y avait un problème dans notre supply chain, on avait la donnée mais on ne savait pas où chercher — l'IA a trouvé en 5 minutes. Je n'aurais jamais eu ce réflexe avant. »</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/men/71.jpg" class="testi-avatar" alt="">
+          <div class="testi-author-text">
+            <span class="testi-name">Julien</span>
+            <span class="testi-role">Tönnies</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card" aria-hidden="true">
+        <span class="testi-company-bg">Bala</span>
+        <span class="testi-stars">★★★★★</span>
+        <p class="testi-quote">« La formation la plus concrète que j'ai suivie. Pas de blabla, on sort de là avec des outils opérationnels. »</p>
+        <div class="testi-author">
+          <img src="https://randomuser.me/api/portraits/men/38.jpg" class="testi-avatar" alt="">
+          <div class="testi-author-text">
+            <span class="testi-name">William</span>
+            <span class="testi-role">Balasany</span>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -1488,7 +1555,7 @@ a  { text-decoration: none; color: inherit; }
     <div class="team-grid">
 
       <!-- Louis Dessal -->
-      <div class="team-card rv-up d1">
+      <a href="https://www.linkedin.com/in/louis-dessal-a005b5147/" target="_blank" rel="noopener" class="team-card rv-up d1" style="display:block;text-decoration:none;color:inherit;">
         <div class="team-avatar"><img src="https://partech-admin.prod.unomena.io/media/images/Louis_Dessal.format-webp.webp" alt="Louis Dessal"></div>
         <div class="team-badges">
           <span class="team-badge"><img src="https://www.google.com/s2/favicons?domain=partechpartners.com&sz=64" alt="">Partech</span>
@@ -1498,10 +1565,10 @@ a  { text-decoration: none; color: inherit; }
         <div class="team-name">Louis Dessal</div>
         <div class="team-role">Investisseur · Venture Capital</div>
         <p class="team-desc">Investisseur chez Partech Partners, ancien élève et professeur à HEC Paris, Louis a passé 6 ans à investir dans la tech. "À ma droite, un entrepreneur m'explique avoir créé une équipe de dev gérée par des agents IA, multipliant sa productivité par 100. À ma gauche, un autre m'avoue qu'il n'arrive pas à faire adopter l'IA à ses équipes. Le fossé était là."</p>
-      </div>
+      </a>
 
       <!-- Valentin Flageat -->
-      <div class="team-card rv-up d2">
+      <a href="https://www.linkedin.com/in/valentinflageat/" target="_blank" rel="noopener" class="team-card rv-up d2" style="display:block;text-decoration:none;color:inherit;">
         <div class="team-avatar"><img src="https://raw.githubusercontent.com/maximegerardin97-max/bootcamp-landing/main/assets/valentin.jpeg" alt="Valentin Flageat"></div>
         <div class="team-badges">
           <span class="team-badge"><img src="https://www.google.com/s2/favicons?domain=hec.edu&sz=64" alt="">HEC Paris</span>
@@ -1511,10 +1578,10 @@ a  { text-decoration: none; color: inherit; }
         <div class="team-name">Valentin Flageat</div>
         <div class="team-role">ML Engineer · LLMs</div>
         <p class="team-desc">ML Engineer au cœur de la machine. Valentin conçoit et entraîne les modèles d'IA de demain. "Je passe mes journées à entraîner les modèles qui font les gros titres. Mais le vrai défi aujourd'hui, ce n'est plus seulement de créer l'IA la plus puissante, c'est de vous apprendre à vous en servir pour de vrai au quotidien."</p>
-      </div>
+      </a>
 
       <!-- Maxime Gerardin -->
-      <div class="team-card rv-up d3">
+      <a href="https://www.linkedin.com/in/maxime-gerardin-349881171/" target="_blank" rel="noopener" class="team-card rv-up d3" style="display:block;text-decoration:none;color:inherit;">
         <div class="team-avatar"><img src="https://media.licdn.com/dms/image/v2/D4E03AQH4n0UmHV1NNA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1716393910177?e=2147483647&v=beta&t=us2RkLcrbRmlRDM7F7cvBA6EvJGJc57eDJb-QaiJCXs" alt="Maxime Gerardin"></div>
         <div class="team-badges">
           <span class="team-badge"><img src="https://www.google.com/s2/favicons?domain=hec.edu&sz=64" alt="">HEC Paris</span>
@@ -1524,7 +1591,7 @@ a  { text-decoration: none; color: inherit; }
         <div class="team-name">Maxime Gerardin</div>
         <div class="team-role">Product Manager · IA</div>
         <p class="team-desc">Product Manager et architecte des usages. Son expertise : transformer des technologies complexes en solutions simples. "Dans la tech, on s'extasie sur l'algorithme. Mais un outil n'a de valeur que s'il est utilisé. Le déclic, c'est quand on arrête de simplement 'chatter' avec une IA pour commencer à construire ses propres solutions."</p>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -1991,21 +2058,17 @@ a  { text-decoration: none; color: inherit; }
      hero bounds — no bleed into downstream sections. */
   const heroEl       = document.getElementById('hero');
   const heroHeadline = document.querySelector('.hero-headline');
-  const heroDesc     = document.querySelector('.hero-desc');
   const heroAside    = document.querySelector('.hero-aside');
   function updateParallax() {
     if (isMobile() || prefersReduced) return;
     const y = window.scrollY;
     const heroH = heroEl ? heroEl.offsetHeight : 0;
-    /* Only apply while hero is still visible; reset once past it */
     if (y > heroH) {
       if (heroHeadline) heroHeadline.style.transform = '';
-      if (heroDesc)     heroDesc.style.transform     = '';
       if (heroAside)    heroAside.style.transform    = '';
       return;
     }
     if (heroHeadline) heroHeadline.style.transform = `translateY(${y * 0.25}px)`;
-    if (heroDesc)     heroDesc.style.transform     = `translateY(${y * 0.4}px)`;
     if (heroAside)    heroAside.style.transform    = `translateY(${y * 0.15}px)`;
   }
 
@@ -2072,30 +2135,8 @@ a  { text-decoration: none; color: inherit; }
     document.querySelectorAll('.skill-item').forEach(el => el.classList.add('bar-go'));
   }
 
-  /* ── HORIZONTAL SCROLL (TESTIMONIALS) ── */
-  const tsWrapper = document.getElementById('testi-scroll-wrapper');
-  const tsTrack   = document.getElementById('testi-scroll-track');
-
-  function setupHorizontalScroll() {
-    if (!tsWrapper || !tsTrack || isMobile()) return;
-    const extra = tsTrack.scrollWidth - window.innerWidth;
-    if (extra <= 0) return;
-    tsWrapper.style.height = (window.innerHeight + extra) + 'px';
-  }
-
-  function updateHorizontalScroll() {
-    if (!tsWrapper || !tsTrack || isMobile()) return;
-    const extra = tsTrack.scrollWidth - window.innerWidth;
-    if (extra <= 0) return;
-    const rect = tsWrapper.getBoundingClientRect();
-    if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-      const progress = Math.max(0, Math.min(1, -rect.top / extra));
-      tsTrack.style.transform = `translateX(${-progress * extra}px)`;
-    }
-  }
-
-  window.addEventListener('load', setupHorizontalScroll);
-  window.addEventListener('resize', () => { setupHorizontalScroll(); });
+  /* horizontal scroll replaced by CSS marquee animation */
+  function updateHorizontalScroll() { /* no-op */ }
 
   /* ── PROGRAMME ACCORDION ── */
   document.querySelectorAll('[data-acc]').forEach(item => {
