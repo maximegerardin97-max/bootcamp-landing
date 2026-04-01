@@ -1235,36 +1235,166 @@ a  { text-decoration: none; color: inherit; }
 .d4 { transition-delay: .55s !important; }
 
 /* ============================================================
+   NAV HAMBURGER (shared, shown only on mobile)
+   ============================================================ */
+#nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+}
+#nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 1px;
+  transition: transform .3s var(--ease), opacity .3s var(--ease);
+}
+#nav.nav-dark #nav-toggle span { background: #EEEAE2; }
+#nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#nav-toggle.open span:nth-child(2) { opacity: 0; }
+#nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav overlay */
+#mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  background: var(--cream);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 6rem var(--pad) 3rem;
+  gap: .25rem;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform .4s var(--ease), opacity .3s var(--ease);
+}
+#mobile-nav.open {
+  display: flex;
+  opacity: 1;
+  transform: none;
+}
+.mobile-nav-link {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 8vw, 3.5rem);
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -.03em;
+  line-height: 1.15;
+  padding: .4rem 0;
+  border-bottom: 1px solid var(--border);
+  width: 100%;
+  transition: color .15s;
+}
+.mobile-nav-link:hover { color: var(--accent); }
+.mobile-nav-cta {
+  margin-top: 1.5rem;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+  color: var(--accent);
+  border: none;
+  font-size: .9rem;
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1080px) {
-  #hero { grid-template-columns: 1fr; gap: 3rem; min-height: auto; padding-top: 8rem; }
+  #hero { grid-template-columns: 1fr; gap: 3rem; min-height: auto; padding-top: 7rem; }
   .hero-headline { margin-right: 0; }
   .problem-grid { grid-template-columns: 1fr; gap: 3rem; }
   .team-grid { grid-template-columns: 1fr 1fr; }
-  .prog-header { grid-template-columns: 1fr; gap: 2rem; }
+  .prog-header { max-width: 100%; margin-bottom: 1rem; }
 }
+
 @media (max-width: 768px) {
-  :root { --pad: 1.5rem; }
+  :root { --pad: 1.25rem; }
   body { cursor: auto; }
   #cur-dot, #cur-ring { display: none; }
-  h2 { font-size: clamp(2rem, 7vw, 3rem); }
-  .sec { padding: 32px 0; }
+
+  /* Nav */
+  .nav-links { display: none; }
+  #nav-toggle { display: flex; }
+
+  /* Type scale */
+  h2 { font-size: clamp(1.9rem, 7vw, 3rem); }
+  .sec { padding: 28px 0; }
+
+  /* Hero */
+  #hero { padding: 5.5rem var(--pad) 3rem; gap: 2rem; }
+  .hero-headline { font-size: clamp(1.9rem, 7.5vw, 3rem); line-height: 1.05; }
+  .hero-promo-list { flex-wrap: wrap; gap: .75rem; }
+  .hero-promo-sep { display: none; }
+  .hero-promo-item:last-child { display: none; } /* show 2 on mobile */
+  .hero-rule { margin: 1.5rem 0; }
+  .hero-aside { display: none; } /* hide aside card on small screens */
+
+  /* Problem */
+  .problem-stat-num { font-size: clamp(5rem, 20vw, 9rem); }
+
+  /* Team */
   .team-grid { grid-template-columns: 1fr; }
+  .team-card:hover { transform: none; }
+
+  /* Outcomes */
   .outcomes-grid { grid-template-columns: 1fr; }
+
+  /* Pricing */
   .pricing-grid { grid-template-columns: 1fr; }
-  .testi-scroll-track { animation-duration: 60s; }
-  .testi-card { min-width: 300px; max-width: 300px; }
+  .price-card { padding: 2rem 1.5rem; }
+  .launch-stamp { top: 1rem; right: 1rem; width: 58px; height: 58px; font-size: .42rem; }
+
+  /* Testimonials */
+  .testi-scroll-track { animation-duration: 55s; }
+  .testi-card { min-width: 290px; max-width: 290px; }
   .testi-card:nth-child(2) { transform: none; }
-  .testi-drag-hint { display: block; }
-  .cta-headline { font-size: clamp(3rem, 12vw, 6rem); }
-  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .testi-header { margin-bottom: 1.5rem; }
+
+  /* CTA */
+  .cta-sec { padding: 60px var(--pad) 50px; }
+  .cta-headline { font-size: clamp(2.8rem, 12vw, 6rem); margin-bottom: 2rem; }
+  .cta-sub { font-size: .86rem; }
+
+  /* FAQ */
+  .faq-inner { max-width: 100%; }
+  .faq-list { margin-top: 2rem; }
+
+  /* Footer */
+  .footer { padding: 4rem var(--pad) 2.5rem; }
+  .footer-bottom { flex-direction: column; gap: .75rem; text-align: center; }
+  .footer-tagline { max-width: 260px; margin: 0 auto; }
+  .footer-cta .btn { width: 100%; justify-content: center; }
+
+  /* Disable parallax transforms on mobile */
   .hero-content, .hero-aside { transform: none !important; }
   .eyebrow { transform: none !important; }
 }
+
+@media (max-width: 480px) {
+  :root { --pad: 1rem; }
+  .hero-headline { font-size: clamp(1.7rem, 8.5vw, 2.4rem); }
+  .hero-promo-item:nth-child(3) { display: none; }
+  .acc-trigger { gap: .75rem; }
+  .acc-dur { display: none; }  /* hide duration on tiny screens */
+  .testi-card { min-width: 270px; max-width: 270px; padding: 1.8rem; }
+  .countdown-timer { font-size: clamp(2rem, 10vw, 3rem); }
+  .cta-headline { font-size: clamp(2.4rem, 12vw, 4rem); }
+  .price-card { padding: 1.5rem 1.25rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
   .rv-clip, .rv-up, .rv-slide { clip-path: none !important; opacity: 1 !important; transform: none !important; }
+  .testi-scroll-track { animation: none !important; overflow-x: auto; }
 }
 </style>
 </head>
@@ -1288,7 +1418,18 @@ a  { text-decoration: none; color: inherit; }
     <li><a href="#tarifs">Tarifs</a></li>
     <li><a href="#inscription" class="nav-cta">Candidater →</a></li>
   </ul>
+  <button id="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile nav overlay -->
+<div id="mobile-nav" aria-hidden="true">
+  <a href="#programme" class="mobile-nav-link">Programme</a>
+  <a href="#equipe" class="mobile-nav-link">L'équipe</a>
+  <a href="#tarifs" class="mobile-nav-link">Tarifs</a>
+  <a href="#inscription" class="mobile-nav-link mobile-nav-cta">Candidater →</a>
+</div>
 
 <!-- ============================================================
      HERO
@@ -2161,6 +2302,31 @@ a  { text-decoration: none; color: inherit; }
         item.querySelector('.acc-icon').textContent = '×';
       }
     });
+  });
+
+  /* ── MOBILE NAV TOGGLE ── */
+  const navToggle  = document.getElementById('nav-toggle');
+  const mobileNav  = document.getElementById('mobile-nav');
+  function closeMobileNav() {
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    mobileNav.classList.remove('open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  navToggle.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.contains('open');
+    if (isOpen) { closeMobileNav(); }
+    else {
+      navToggle.classList.add('open');
+      navToggle.setAttribute('aria-expanded', 'true');
+      mobileNav.classList.add('open');
+      mobileNav.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+  mobileNav.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
   });
 
   /* ── FAQ ACCORDION ── */
